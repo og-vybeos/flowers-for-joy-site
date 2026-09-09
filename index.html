@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers for Joy — Delivering hope, one Monday at a time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C2321;
+  --ink-soft:#4A5450;
+  --paper:#FBFAF7;
+  --clinic:#EDEFEE;
+  --bloom:#C8536B;
+  --bloom-soft:#F2D9DE;
+  --stem:#5C7B62;
+  --gold:#C89B3C;
+  --line:#DCDDD8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,250,247,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600;letter-spacing:-.01em}
+.logo-mark{width:32px;height:32px;border-radius:50%;background:var(--bloom-soft);border:1.5px solid var(--bloom);display:grid;place-items:center;font-size:.85rem;color:var(--bloom)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--bloom)}
+.btn{
+  display:inline-block;background:var(--bloom);color:#fff;
+  padding:11px 22px;border-radius:2px;text-decoration:none;
+  font-size:.85rem;font-weight:600;letter-spacing:.02em;
+  transition:background .2s,transform .2s;border:none;cursor:pointer;
+}
+.btn:hover{background:#A8405A;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero{padding:88px 0 72px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.eyebrow{
+  font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stem);margin-bottom:22px;display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--stem)}
+h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.6rem,5.4vw,4.1rem);
+  line-height:1.04;font-weight:600;letter-spacing:-.025em;margin-bottom:24px;
+}
+h1 em{font-style:italic;color:var(--bloom);font-weight:500}
+.lede{font-size:1.1rem;color:var(--ink-soft);max-width:46ch;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* The signature element: a "Monday ledger" — every Monday since Nov 2024 */
+.ledger{
+  background:var(--clinic);
+  border:1px solid var(--line);
+  padding:26px 24px;
+}
+.ledger-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:18px;
+}
+.ledger-title{font-family:'Fraunces',serif;font-size:1.02rem;font-weight:600}
+.ledger-sub{font-size:.72rem;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase}
+.dots{display:grid;grid-template-columns:repeat(15,1fr);gap:7px;margin-bottom:16px}
+.dot{
+  aspect-ratio:1;border-radius:50%;background:var(--bloom);opacity:.82;
+  animation:bloom .5s ease-out backwards;
+}
+@keyframes bloom{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:.82}}
+.ledger-foot{font-size:.8rem;color:var(--ink-soft);line-height:1.5}
+.ledger-foot strong{color:var(--ink);font-weight:600}
+
+/* ---------- STATS STRIP ---------- */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.strip-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;line-height:1;margin-bottom:6px}
+.stat-l{font-size:.78rem;color:var(--ink-soft);letter-spacing:.05em}
+
+/* ---------- SECTIONS ---------- */
+section{padding:82px 0}
+.sec-head{max-width:64ch;margin-bottom:44px}
+h2{
+  font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.4vw,2.6rem);
+  font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px;
+}
+.sec-head p{color:var(--ink-soft);font-size:1.03rem}
+
+/* Story */
+.story{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.story p{margin-bottom:18px;color:var(--ink-soft)}
+.story p:first-of-type{font-size:1.12rem;color:var(--ink)}
+.pull{
+  border-left:2px solid var(--bloom);
+  padding:6px 0 6px 22px;margin:26px 0;
+  font-family:'Fraunces',serif;font-size:1.22rem;font-style:italic;
+  line-height:1.45;color:var(--ink);
+}
+
+/* Placeholders */
+.ph{
+  background:var(--clinic);
+  border:1px dashed #C3C7C4;
+  display:grid;place-items:center;
+  color:#9AA09C;text-align:center;padding:22px;
+  font-size:.8rem;letter-spacing:.04em;
+}
+.ph span{display:block;font-size:1.5rem;margin-bottom:8px;opacity:.5}
+.ph-tall{aspect-ratio:3/4}
+.ph-wide{aspect-ratio:4/3}
+.ph-sq{aspect-ratio:1}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.ph.has-img{border:none;padding:0;background:none}
+.member .ph img{object-position:center 20%}
+
+/* How it works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
+.step{padding:34px 28px;border-right:1px solid var(--line);background:#fff}
+.step:last-child{border-right:none}
+.step-n{
+  font-family:'Fraunces',serif;font-size:.8rem;color:var(--bloom);
+  letter-spacing:.1em;margin-bottom:14px;font-weight:600;
+}
+.step h3{font-family:'Fraunces',serif;font-size:1.24rem;font-weight:600;margin-bottom:10px}
+.step p{font-size:.93rem;color:var(--ink-soft)}
+
+/* Gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gal .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+/* Chapters */
+.chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ch{background:#fff;border:1px solid var(--line);padding:28px}
+.ch-city{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;margin-bottom:4px}
+.ch-status{
+  display:inline-block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 9px;margin-bottom:14px;font-weight:600;
+}
+.live{background:var(--bloom-soft);color:var(--bloom)}
+.soon{background:#E8EDE9;color:var(--stem)}
+.ch p{font-size:.92rem;color:var(--ink-soft)}
+
+/* Team */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.member .ph{margin-bottom:14px;aspect-ratio:3/4}
+.m-name{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600}
+.m-role{font-size:.82rem;color:var(--stem);letter-spacing:.03em}
+
+/* Partners */
+.partners{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.partner{
+  border:1px solid var(--line);background:#fff;
+  padding:16px 26px;font-size:.9rem;color:var(--ink-soft);font-weight:500;
+}
+
+/* CTA band */
+.band{background:var(--ink);color:var(--paper);text-align:center}
+.band h2{color:var(--paper)}
+.band p{color:#B6BDB9;max-width:52ch;margin:0 auto 30px;font-size:1.03rem}
+.band .btn-ghost{color:var(--paper);border-color:var(--paper)}
+.band .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.band-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font-size:.88rem}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:38px}
+.f-grid h4{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;font-weight:600}
+.f-grid a{display:block;color:var(--ink-soft);text-decoration:none;margin-bottom:8px}
+.f-grid a:hover{color:var(--bloom)}
+.f-about{color:var(--ink-soft);max-width:38ch}
+.disclaimer{
+  border-top:1px solid var(--line);padding-top:22px;
+  font-size:.78rem;color:#8A918D;line-height:1.6;
+}
+.disclaimer strong{color:var(--ink-soft)}
+
+@media(max-width:900px){
+  .hero-grid,.story-grid{grid-template-columns:1fr;gap:38px}
+  .strip-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:nth-child(2){border-right:none}
+  .steps,.chapters{grid-template-columns:1fr}
+  .step{border-right:none;border-bottom:1px solid var(--line)}
+  .team{grid-template-columns:repeat(2,1fr)}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .f-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .burger{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="logo-mark">✿</span> Flowers for Joy</div>
+    <div class="nav-links">
+      <a href="#story">Our story</a>
+      <a href="#how">How it works</a>
+      <a href="#chapters">Chapters</a>
+      <a href="#team">Team</a>
+      <a href="#help" class="btn">Get involved</a>
+    </div>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Austin · New York · Kuwait · and growing</div>
+      <h1>Every Monday, someone in treatment gets <em>flowers</em>.</h1>
+      <p class="lede">Flowers for Joy delivers donated bouquets to cancer patients in chemotherapy and radiation. Started by a patient, during her own treatment. We haven't missed a Monday since November 2024.</p>
+      <div class="hero-cta">
+        <a href="#help" class="btn">Volunteer with us</a>
+        <a href="#story" class="btn btn-ghost">Read our story</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE ELEMENT: the Monday ledger -->
+    <div class="ledger">
+      <div class="ledger-head">
+        <div class="ledger-title">The Monday Ledger</div>
+        <div class="ledger-sub">Since Nov 2024</div>
+      </div>
+      <div class="dots" id="dots"></div>
+      <div class="ledger-foot">Each dot is one Monday we showed up. <strong>Not one missed.</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap strip-grid">
+    <div class="stat"><div class="stat-n">Nov 2024</div><div class="stat-l">First delivery</div></div>
+    <div class="stat"><div class="stat-n">7</div><div class="stat-l">Volunteers</div></div>
+    <div class="stat"><div class="stat-n">Every Monday</div><div class="stat-l">Never missed</div></div>
+    <div class="stat"><div class="stat-n">3 cities</div><div class="stat-l">Austin · New York · Kuwait</div></div>
+  </div>
+</div>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <div class="eyebrow">Our story</div>
+      <h2>It began with a patient thinking about other patients.</h2>
+      <p>Seema Govil was in the middle of her own cancer treatment when she started noticing the people in the chairs beside her — and decided not to wait until she was well to do something about it.</p>
+      <p>She began bringing flowers into the clinics. Not as a survivor looking back, but as a patient still in it.</p>
+      <div class="pull">She didn't notice she was doing anything unusual. It was only when people kept telling her so that she understood.</div>
+      <p>During the peak of her treatment she wrote a poem. A nurse read it aloud one day while she sat waiting, and it stayed with her. When Flowers for Joy began, it was the nursing staff who suggested attaching the poem to the deliveries — because coming from a patient who had lived it, the words carried an encouragement no card from a stranger could.</p>
+      <p>Today that instinct has a name, a team, and a route. It runs every week.</p>
+    </div>
+    <div class="ph ph-tall" data-img="images/seema.jpg"><div><span>✿</span>Photo — Seema with flowers<br><em style="font-size:.72rem;opacity:.75">portrait, vertical</em></div></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Flowers to the nurses. Nurses to the patients.</h2>
+      <p>Clinics don't permit outsiders at the bedside — and that's right. So we work with the people already trusted in the room.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">FIRST</div>
+        <h3>We gather</h3>
+        <p>Flowers are donated by partner grocers and florists — blooms with plenty of life left in them that would otherwise be discarded.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">THEN</div>
+        <h3>We deliver to the nurses</h3>
+        <p>Volunteers bring arrangements to the clinic and hand them to the nursing staff, who know their patients and their day.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">FINALLY</div>
+        <h3>Nurses and volunteers hand them over</h3>
+        <p>The flowers reach patients in chemotherapy and radiation, often with the poem attached. Quietly. No branding, no pitch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">From our deliveries</div>
+      <h2>What a Monday looks like.</h2>
+    </div>
+    <!-- PHOTO POLICY (per Seema, 7/29): All flower photos should feature volunteers, nurses, or florists — NOT patients — with ONE exception: the single lobby photo of many patients holding flowers, used as the feature image below. Photos of Chris Kary handing flowers to patients are available on request but are not the default model. Keep patient identities protected. -->
+    <div class="gal">
+      <div class="ph ph-sq" data-img="images/gallery-3.jpg"><div><span>✿</span>Volunteers</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-1.jpg"><div><span>✿</span>Volunteer &amp; florist</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-2.jpg"><div><span>✿</span>Bouquets</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-4.jpg"><div><span>✿</span>Delivery run</div></div>
+      <div class="ph ph-sq" data-img="images/lobby-patients.jpg"><div><span>✿</span>Patient with flowers &amp; poem</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-5.jpg"><div><span>✿</span>Volunteer sharing flowers</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-6.jpg"><div><span>✿</span>A moment delivered</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-7.jpg"><div><span>✿</span>Add more</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="chapters">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Chapters</div>
+      <h2>The model is simple enough to carry anywhere.</h2>
+      <p>A local lead, a few volunteers, a flower source, and a clinic that says yes. Each chapter runs on the same playbook.</p>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-city">Austin</div>
+        <div class="ch-status live">Delivering</div>
+        <p>Where it started. Weekly deliveries with a team of seven volunteers.</p>
+      </div>
+      <div class="ch">
+        <div class="ch-city">New York</div>
+        <div class="ch-status soon">Launching late August</div>
+        <p>Led by Seema's daughter and a friend's daughter. Mount Sinai has confirmed as the receiving clinic, and Trader Joe's has confirmed the flower donation.</p>
+      </div>
+      <div class="ch">
+        <div class="ch-city">Kuwait</div>
+        <div class="ch-status soon">Starting</div>
+        <p>Our first international chapter, opening the same model abroad. Team details to come.</p>
+      </div>
+      <div class="ch">
+        <div class="ch-city">Your city</div>
+        <div class="ch-status soon">Open</div>
+        <p>If you can find a clinic and a few willing hands, we'll give you the playbook.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our team</div>
+      <h2>The people who show up.</h2>
+    </div>
+    <div class="team">
+      <div class="member">
+        <div class="ph ph-sq" data-img="images/team-seema.jpg"><div><span>✿</span>Photo</div></div>
+        <div class="m-name">Seema Govil</div>
+        <div class="m-role">Founder</div>
+      </div>
+      <div class="member">
+        <div class="ph ph-sq" data-img="images/team-chris.jpg"><div><span>✿</span>Photo</div></div>
+        <div class="m-name">Chris Kary</div>
+        <div class="m-role">Executive Director, Texas</div>
+      </div>
+      <div class="member">
+        <div class="ph ph-sq" data-img="images/team-3.jpg"><div><span>✿</span>Photo</div></div>
+        <div class="m-name">Volunteer name</div>
+        <div class="m-role">Role</div>
+      </div>
+      <div class="member">
+        <div class="ph ph-sq" data-img="images/team-4.jpg"><div><span>✿</span>Photo</div></div>
+        <div class="m-name">Volunteer name</div>
+        <div class="m-role">Role</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">With thanks to</div>
+      <h2>Our flower partners.</h2>
+      <p>Every bouquet we deliver was donated by someone who chose to give it a second life.</p>
+    </div>
+    <div class="partners">
+      <div class="partner">Whole Foods</div>
+      <div class="partner">Trader Joe's</div>
+      <div class="partner">La Fleur Florist</div>
+      <div class="partner" style="border-style:dashed;color:#9AA09C">Your business here</div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="help">
+  <div class="wrap">
+    <h2>Bring Monday flowers to your city.</h2>
+    <p>Volunteer an hour a week, donate flowers from your shop, or help us open the next chapter. Every route in is a small one.</p>
+    <div class="band-cta">
+      <a href="#" class="btn">Volunteer</a>
+      <a href="#" class="btn btn-ghost">Donate flowers</a>
+      <a href="#" class="btn btn-ghost">Start a chapter</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="logo" style="margin-bottom:14px"><span class="logo-mark">✿</span> Flowers for Joy</div>
+        <p class="f-about">Donated flowers, delivered weekly to cancer patients in chemotherapy and radiation. Powered by the nonprofit MDJunior.org.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#story">Our story</a>
+        <a href="#how">How it works</a>
+        <a href="#chapters">Chapters</a>
+        <a href="#team">Team</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/flowersforjoy24">Instagram</a>
+        <a href="#help">Volunteer</a>
+        <a href="#help">Donate flowers</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <strong>A note on flowers and allergies.</strong> Arrangements are handed to clinical staff, who determine whether flowers are appropriate for a given patient or unit. In infusion rooms and radiation areas, nurses and volunteers always ask patients and caregivers first whether they would like flowers. We also share flowers with people waiting in labs, follow-up appointments, and other waiting areas — always by invitation, never assumed. Patients or families with allergies, scent sensitivities, or immune considerations should speak with their care team.<br><br>
+      © 2026 Flowers for Joy. Powered by MDJunior.org. <em>Draft — content and images pending final approval.</em>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Auto-load photos: any .ph with data-img swaps to the real image if the file
+// exists in /images, and quietly stays a placeholder if it doesn't. Drop files
+// in with the expected names (see images/README.md) — no HTML editing needed.
+(function(){
+  document.querySelectorAll('.ph[data-img]').forEach(function(ph){
+    var src = ph.getAttribute('data-img');
+    var img = new Image();
+    img.onload = function(){
+      ph.innerHTML = '';
+      ph.classList.add('has-img');
+      var el = document.createElement('img');
+      el.src = src;
+      el.alt = '';
+      ph.appendChild(el);
+    };
+    img.onerror = function(){ /* leave placeholder as-is */ };
+    img.src = src;
+  });
+})();
+
+(function(){
+  var start = new Date(2024,10,4); // first Monday, Nov 2024
+  var now = new Date();
+  var weeks = Math.max(1, Math.floor((now - start)/(1000*60*60*24*7)));
+  var el = document.getElementById('dots');
+  var frag = document.createDocumentFragment();
+  for(var i=0;i<weeks;i++){
+    var d = document.createElement('div');
+    d.className='dot';
+    d.style.animationDelay=(i*8)+'ms';
+    frag.appendChild(d);
+  }
+  el.appendChild(frag);
+})();
+</script>
+</body>
+</html>
