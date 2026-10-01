@@ -3,21 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Flowers for Joy — Delivering hope, one Monday at a time</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1C2321;
-  --ink-soft:#4A5450;
-  --paper:#FBFAF7;
-  --clinic:#EDEFEE;
-  --bloom:#C8536B;
-  --bloom-soft:#F2D9DE;
-  --stem:#5C7B62;
+  color-scheme:light;
+  --ink:#20342A;
+  --ink-soft:#48594F;
+  --paper:#F7F3EC;
+  --clinic:#ECEFEA;
+  --bloom:#F2C6D2;
+  --bloom-soft:#F9E4EA;
+  --stem:#3D6B4C;
   --gold:#C89B3C;
-  --line:#DCDDD8;
+  --line:#E0DBD2;
+  --forest:#22372A;
+  --butter:#F5EAB8;
+  --sage:#C9DBC5;
+  --pink-deep:#C77E92;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -44,12 +50,18 @@ nav{
 .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--bloom)}
 .btn{
-  display:inline-block;background:var(--bloom);color:#fff;
-  padding:11px 22px;border-radius:2px;text-decoration:none;
+  display:inline-block;background:var(--forest);color:#fff;
+  padding:12px 26px;border-radius:999px;text-decoration:none;
   font-size:.85rem;font-weight:600;letter-spacing:.02em;
   transition:background .2s,transform .2s;border:none;cursor:pointer;
 }
-.btn:hover{background:#A8405A;transform:translateY(-1px)}
+.btn:hover{background:#142a1e;transform:translateY(-1px)}
+.btn-pink{background:var(--bloom);color:var(--forest)}
+.btn-pink:hover{background:#ecb2c1;color:var(--forest)}
+.btn-butter{background:var(--butter);color:var(--forest)}
+.btn-butter:hover{background:#efe1a2;color:var(--forest)}
+.btn-sage{background:var(--sage);color:var(--forest)}
+.btn-sage:hover{background:#b8cfb3;color:var(--forest)}
 .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:var(--paper)}
 .burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
@@ -85,7 +97,7 @@ h1 em{font-style:italic;color:var(--bloom);font-weight:500}
 .ledger-sub{font-size:.72rem;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase}
 .dots{display:grid;grid-template-columns:repeat(15,1fr);gap:7px;margin-bottom:16px}
 .dot{
-  aspect-ratio:1;border-radius:50%;background:var(--bloom);opacity:.82;
+  aspect-ratio:1;border-radius:50%;background:var(--stem);opacity:.85;
   animation:bloom .5s ease-out backwards;
 }
 @keyframes bloom{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:.82}}
@@ -133,7 +145,8 @@ h2{
 .ph-tall{aspect-ratio:3/4}
 .ph-wide{aspect-ratio:4/3}
 .ph-sq{aspect-ratio:1}
-.ph img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.ph{position:relative;overflow:hidden;min-width:0;min-height:0}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
 .ph.has-img{border:none;padding:0;background:none}
 .member .ph img{object-position:center 20%}
 
@@ -150,7 +163,7 @@ h2{
 
 /* Gallery */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.gal .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal .ph:nth-child(1){grid-column:span 2;aspect-ratio:auto}
 
 /* Chapters */
 .chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -178,12 +191,25 @@ h2{
 }
 
 /* CTA band */
-.band{background:var(--ink);color:var(--paper);text-align:center}
+.band{background:var(--forest);color:var(--paper);text-align:center}
 .band h2{color:var(--paper)}
-.band p{color:#B6BDB9;max-width:52ch;margin:0 auto 30px;font-size:1.03rem}
+.band p{color:#C3D2C8;max-width:52ch;margin:0 auto 30px;font-size:1.03rem}
 .band .btn-ghost{color:var(--paper);border-color:var(--paper)}
-.band .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.band .btn-ghost:hover{background:var(--paper);color:var(--forest)}
 .band-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Get involved — three cards */
+.involve{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:8px;text-align:left}
+.icard{background:#fff;border:1px solid var(--line);padding:30px 26px;display:flex;flex-direction:column}
+.icard h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;margin-bottom:10px}
+.icard p{color:var(--ink-soft);font-size:.94rem;margin-bottom:18px}
+.icard .btn{align-self:flex-start;margin-top:auto}
+.vform{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.vform input{font-family:inherit;font-size:.9rem;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
+.vform input:focus{outline:2px solid var(--bloom);outline-offset:1px;border-color:transparent}
+.qr-wrap{text-align:center;margin-bottom:16px}
+.qr-wrap img{width:170px;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px}
+.qr-note{font-size:.8rem;color:var(--ink-soft);margin-top:8px}
 
 /* Footer */
 footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font-size:.88rem}
@@ -317,8 +343,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     </div>
     <!-- PHOTO POLICY (per Seema, 7/29): All flower photos should feature volunteers, nurses, or florists — NOT patients — with ONE exception: the single lobby photo of many patients holding flowers, used as the feature image below. Photos of Chris Kary handing flowers to patients are available on request but are not the default model. Keep patient identities protected. -->
     <div class="gal">
-      <div class="ph ph-sq" data-img="images/gallery-3.jpg"><div><span>✿</span>Volunteers</div></div>
-      <div class="ph ph-sq" data-img="images/gallery-1.jpg"><div><span>✿</span>Volunteer &amp; florist</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-1.jpg"><div><span>✿</span>Volunteers</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-3.jpg"><div><span>✿</span>Volunteer &amp; florist</div></div>
       <div class="ph ph-sq" data-img="images/gallery-2.jpg"><div><span>✿</span>Bouquets</div></div>
       <div class="ph ph-sq" data-img="images/gallery-4.jpg"><div><span>✿</span>Delivery run</div></div>
       <div class="ph ph-sq" data-img="images/lobby-patients.jpg"><div><span>✿</span>Patient with flowers &amp; poem</div></div>
@@ -410,12 +436,41 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 
 <section class="band" id="help">
   <div class="wrap">
-    <h2>Bring Monday flowers to your city.</h2>
-    <p>Volunteer an hour a week, donate flowers from your shop, or help us open the next chapter. Every route in is a small one.</p>
-    <div class="band-cta">
-      <a href="#" class="btn">Volunteer</a>
-      <a href="#" class="btn btn-ghost">Donate flowers</a>
-      <a href="#" class="btn btn-ghost">Start a chapter</a>
+    <h2>Help us grow the joy.</h2>
+    <p>Your support brings comfort to more patients, in more clinics, in more communities. Here are three ways in.</p>
+    <div class="involve">
+
+      <!-- VOLUNTEER -->
+      <div class="icard">
+        <h3>Volunteer</h3>
+        <p>An hour a week is enough. Tell us a little about you and we'll be in touch.</p>
+        <form class="vform" onsubmit="return sendVolunteer(event)">
+          <input type="text" id="v-first" placeholder="First name" required>
+          <input type="text" id="v-last" placeholder="Last name" required>
+          <input type="text" id="v-city" placeholder="City" required>
+          <input type="email" id="v-email" placeholder="Email" required>
+          <input type="text" id="v-help" placeholder="How you'd like to help (optional)">
+        </form>
+        <button type="button" class="btn btn-pink" onclick="sendVolunteer(event)">Send</button>
+      </div>
+
+      <!-- DONATE -->
+      <div class="icard">
+        <h3>Donate</h3>
+        <p>Every gift buys flowers and covers deliveries to patients in treatment. Scan to give securely through Zelle to MDJunior Inc.</p>
+        <div class="qr-wrap">
+          <img src="images/donate-qr.png" alt="Zelle donation QR code for MDJunior Inc">
+          <div class="qr-note">Scan in your bank's app to pay <strong>MDJunior Inc</strong></div>
+        </div>
+      </div>
+
+      <!-- START A CHAPTER -->
+      <div class="icard">
+        <h3>Start a chapter</h3>
+        <p>If you can find a clinic and a few willing hands, we'll share the playbook and help you launch in your city.</p>
+        <a href="mailto:Seema@thefranchiseconsultingcompany.com?subject=Starting%20a%20Flowers%20for%20Joy%20chapter&amp;body=Hi%20Seema%2C%20I'd%20like%20to%20explore%20starting%20a%20chapter%20in%20my%20city.%20Here's%20a%20bit%20about%20me%3A" class="btn btn-sage">Email us</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -443,12 +498,29 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     </div>
     <div class="disclaimer">
       <strong>A note on flowers and allergies.</strong> Arrangements are handed to clinical staff, who determine whether flowers are appropriate for a given patient or unit. In infusion rooms and radiation areas, nurses and volunteers always ask patients and caregivers first whether they would like flowers. We also share flowers with people waiting in labs, follow-up appointments, and other waiting areas — always by invitation, never assumed. Patients or families with allergies, scent sensitivities, or immune considerations should speak with their care team.<br><br>
-      © 2026 Flowers for Joy. Powered by MDJunior.org. <em>Draft — content and images pending final approval.</em>
+      © 2026 Flowers for Joy. Powered by MDJunior.org.
     </div>
   </div>
 </footer>
 
 <script>
+// Volunteer form -> opens the visitor's email app with the details filled in,
+// addressed to Seema. No server needed.
+function sendVolunteer(e){
+  if(e) e.preventDefault();
+  var f=document.getElementById('v-first').value.trim();
+  var l=document.getElementById('v-last').value.trim();
+  var c=document.getElementById('v-city').value.trim();
+  var em=document.getElementById('v-email').value.trim();
+  var h=document.getElementById('v-help').value.trim();
+  if(!f||!l||!c||!em){ alert('Please fill in your name, city, and email.'); return false; }
+  var to='Seema@thefranchiseconsultingcompany.com';
+  var subject='Flowers for Joy — Volunteer sign-up: '+f+' '+l;
+  var body='Name: '+f+' '+l+'\nCity: '+c+'\nEmail: '+em+'\nHow I can help: '+(h||'(not specified)')+'\n\nI\'d like to volunteer with Flowers for Joy.';
+  window.location.href='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  return false;
+}
+
 // Auto-load photos: any .ph with data-img swaps to the real image if the file
 // exists in /images, and quietly stays a placeholder if it doesn't. Drop files
 // in with the expected names (see images/README.md) — no HTML editing needed.
@@ -464,7 +536,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       el.alt = '';
       ph.appendChild(el);
     };
-    img.onerror = function(){ /* leave placeholder as-is */ };
+    img.onerror = function(){
+      var m = ph.closest('.member');
+      if (m) { m.remove(); return; }
+      if (ph.closest('.gal')) { ph.remove(); }
+    };
     img.src = src;
   });
 })();
