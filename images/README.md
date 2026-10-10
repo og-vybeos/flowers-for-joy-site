@@ -17,7 +17,7 @@ Square-ish photos with the face centered work best. Keep each under ~500 KB.
 | Serena Govil    | team-serena.jpg   |
 | Karina Redkar   | team-karina.jpg   |
 
-Seema (team-seema.jpg) and Chris (team-chris.jpg) are already in place.
+Seema and Chris already have photos (avatar-seema.jpg, avatar-chris.jpg).
 
 # Story video
 

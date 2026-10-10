@@ -63,14 +63,12 @@ nav{
 .p-group{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:28px 0 12px}
 .p-group:first-of-type{margin-top:0}
 /* Team bios */
-.leads{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:12px;align-items:start}
-.lead{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--paper)}
-.lead .ph{aspect-ratio:3/4;border-radius:8px}
-.lead p,.bio p{font-size:.9rem;color:var(--ink-soft);margin-top:10px;line-height:1.6}
+.bio p{font-size:.9rem;color:var(--ink-soft);margin-top:10px;line-height:1.6}
+.bio-group.first{border-top:none;padding-top:0;margin-top:0}
 .bio-group{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:44px 0 16px;border-top:1px solid var(--line);padding-top:26px}
 .bios{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .bio{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff}
-.ph.bio-ph{width:72px;height:72px;flex:0 0 72px;border-radius:50%;border:none;padding:0;background:var(--bloom-soft);color:var(--rose);font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;letter-spacing:.02em;display:grid;place-items:center}
+.ph.bio-ph{width:80px;height:80px;flex:0 0 80px;border-radius:50%;border:none;padding:0;background:var(--bloom-soft);color:var(--rose);font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;letter-spacing:.02em;display:grid;place-items:center}
 .ph.bio-ph.has-img{background:none}
 .crew{margin-top:38px;border-top:1px solid var(--line);padding-top:26px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
 .crew h3{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:12px}
@@ -267,9 +265,8 @@ footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font
   .gal{grid-template-columns:repeat(2,1fr)}
   .f-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .press,.crew,.leads,.bios{grid-template-columns:1fr}
-  .lead{grid-template-columns:1fr}
-  .lead .ph{max-width:240px}
+  .press,.crew,.bios{grid-template-columns:1fr}
+  .bio{flex-direction:column;gap:14px}
   .burger{display:block}
 }
 @media(prefers-reduced-motion:reduce){
@@ -440,24 +437,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <h2>The people who show up.</h2>
     </div>
 
-    <div class="leads">
-      <div class="lead">
-        <div class="ph" data-img="images/team-seema.jpg"><div><span>✿</span>Photo</div></div>
-        <div>
-          <div class="m-name">Seema Govil</div>
-          <div class="m-role">Founder</div>
-          <p>Seema started Flowers for Joy in November 2024, during her own cancer treatment, with a single bouquet meant to bring a smile to everyone in the infusion room.</p>
-        </div>
-      </div>
-      <div class="lead">
-        <div class="ph" data-img="images/team-chris.jpg"><div><span>✿</span>Photo</div></div>
-        <div>
-          <div class="m-name">C.J. (Chris) Kary</div>
-          <div class="m-role">Executive Director</div>
-          <p>Chris J. Kary is the Executive Director of Flowers for Joy, an organization dedicated to bringing beauty, hope, and joy to people facing cancer. Under his leadership, the organization delivers fresh flowers directly to patients in infusion rooms and to the nurses caring for them at oncology centers across the region.</p>
-          <p>Chris' connection to flowers goes back to his mother's rose garden and his father's lifelong search for purpose. For the last year and a half of his life, his father worked alongside him to build Flowers for Joy. “It remains one of the greatest honors of my life that we got to create this together before he passed,” he says. That experience shapes how he talks about the organization's work today: “There's nothing more rewarding than witnessing how a simple bouquet can brighten someone's day during their hardest moments.”</p>
-        </div>
-      </div>
+    <h3 class="bio-group first">Leadership</h3>
+    <div class="bios">
+      <div class="bio"><div class="ph bio-ph" data-img="images/avatar-seema.jpg">SG</div><div><div class="m-name">Seema Govil</div><div class="m-role">Founder</div>
+        <p>Seema started Flowers for Joy in November 2024, during her own cancer treatment, with a single bouquet meant to bring a smile to everyone in the infusion room.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/avatar-chris.jpg">CK</div><div><div class="m-name">C.J. (Chris) Kary</div><div class="m-role">Executive Director</div>
+        <p>Chris J. Kary is the Executive Director of Flowers for Joy, an organization dedicated to bringing beauty, hope, and joy to people facing cancer. Under his leadership, the organization delivers fresh flowers directly to patients in infusion rooms and to the nurses caring for them at oncology centers across the region.</p> <p>Chris' connection to flowers goes back to his mother's rose garden and his father's lifelong search for purpose. For the last year and a half of his life, his father worked alongside him to build Flowers for Joy. “It remains one of the greatest honors of my life that we got to create this together before he passed,” he says. That experience shapes how he talks about the organization's work today: “There's nothing more rewarding than witnessing how a simple bouquet can brighten someone's day during their hardest moments.”</p></div></div>
     </div>
 
     <h3 class="bio-group">Volunteers</h3>
