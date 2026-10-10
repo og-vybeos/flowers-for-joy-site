@@ -12,16 +12,15 @@ Square-ish photos with the face centered work best. Keep each under ~500 KB.
 | Neelu           | team-neelu.jpg    |
 | Kevin           | team-kevin.jpg    |
 | Timothy Kary    | team-timothy.jpg  |
-| Ren Hogue       | team-ren.jpg      |
+| Ren Hogue       | team-ren.jpg      |  (no photo yet)
 | Kim             | team-kim.jpg      |
-| Serena Govil    | team-serena.jpg   |
-| Karina Redkar   | team-karina.jpg   |
+| Serena Govil    | team-serena.jpg   |  (no photo yet; shared photo is nyc-chairs.jpg)
+| Karina Redkar   | team-karina.jpg   |  (no photo yet; shared photo is nyc-chairs.jpg)
 
 Seema and Chris already have photos (avatar-seema.jpg, avatar-chris.jpg).
 
 # Story video
 
-Open index.html, find `var STORY_VIDEO = '';` and paste a YouTube or
-Google Drive link between the quotes. The "Watch our story" section appears
-once a link is there. Google Drive files must be shared as
-"Anyone with the link can view".
+The video plays from video/story.mp4 (720p, about 7.6 MB). To replace it,
+swap in a new file with the same name, and update video/poster.jpg
+(the still image shown before it plays).
