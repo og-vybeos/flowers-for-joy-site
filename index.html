@@ -24,6 +24,7 @@
   --butter:#F5EAB8;
   --sage:#C9DBC5;
   --pink-deep:#C77E92;
+  --rose:#A94F68;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -45,10 +46,41 @@ nav{
 }
 .nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto}
 .logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600;letter-spacing:-.01em}
-.logo-mark{width:32px;height:32px;border-radius:50%;background:var(--bloom-soft);border:1.5px solid var(--bloom);display:grid;place-items:center;font-size:.85rem;color:var(--bloom)}
+.logo-mark{width:44px;height:44px;object-fit:contain;display:block}
+/* Story video */
+.watch{background:#fff;border-bottom:1px solid var(--line)}
+.video-wrap{position:relative;aspect-ratio:16/9;max-width:900px;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 10px 30px rgba(34,55,42,.12)}
+.video-wrap.tall{aspect-ratio:9/16;max-width:380px}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* Press */
+.press{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pcard{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px 20px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
+.pcard:hover{border-color:var(--stem);transform:translateY(-2px)}
+.p-src{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stem);font-weight:600}
+.p-title{font-family:'Fraunces',serif;font-size:1.22rem;font-weight:600;line-height:1.3}
+.p-go{margin-top:auto;padding-top:6px;font-size:.85rem;color:var(--ink-soft)}
+/* Partner groups + volunteer names */
+.p-group{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:28px 0 12px}
+.p-group:first-of-type{margin-top:0}
+/* Team bios */
+.leads{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:12px;align-items:start}
+.lead{display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--paper)}
+.lead .ph{aspect-ratio:3/4;border-radius:8px}
+.lead p,.bio p{font-size:.9rem;color:var(--ink-soft);margin-top:10px;line-height:1.6}
+.bio-group{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:44px 0 16px;border-top:1px solid var(--line);padding-top:26px}
+.bios{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.bio{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff}
+.ph.bio-ph{width:72px;height:72px;flex:0 0 72px;border-radius:50%;border:none;padding:0;background:var(--bloom-soft);color:var(--rose);font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;letter-spacing:.02em;display:grid;place-items:center}
+.ph.bio-ph.has-img{background:none}
+.crew{margin-top:38px;border-top:1px solid var(--line);padding-top:26px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.crew h3{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:12px}
+.crew ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.crew li{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:.88rem}
+.crew li span{color:var(--ink-soft)}
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--bloom)}
+.nav-links a:hover{color:var(--rose)}
+.nav-links a.btn,.nav-links a.btn:hover{color:#fff}
 .btn{
   display:inline-block;background:var(--forest);color:#fff;
   padding:12px 26px;border-radius:999px;text-decoration:none;
@@ -79,7 +111,7 @@ h1{
   font-size:clamp(2.6rem,5.4vw,4.1rem);
   line-height:1.04;font-weight:600;letter-spacing:-.025em;margin-bottom:24px;
 }
-h1 em{font-style:italic;color:var(--bloom);font-weight:500}
+h1 em{font-style:italic;color:var(--rose);font-weight:500}
 .lede{font-size:1.1rem;color:var(--ink-soft);max-width:46ch;margin-bottom:34px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 
@@ -155,7 +187,7 @@ h2{
 .step{padding:34px 28px;border-right:1px solid var(--line);background:#fff}
 .step:last-child{border-right:none}
 .step-n{
-  font-family:'Fraunces',serif;font-size:.8rem;color:var(--bloom);
+  font-family:'Fraunces',serif;font-size:.8rem;color:var(--rose);
   letter-spacing:.1em;margin-bottom:14px;font-weight:600;
 }
 .step h3{font-family:'Fraunces',serif;font-size:1.24rem;font-weight:600;margin-bottom:10px}
@@ -173,7 +205,7 @@ h2{
   display:inline-block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
   padding:3px 9px;margin-bottom:14px;font-weight:600;
 }
-.live{background:var(--bloom-soft);color:var(--bloom)}
+.live{background:var(--bloom);color:var(--forest)}
 .soon{background:#E8EDE9;color:var(--stem)}
 .ch p{font-size:.92rem;color:var(--ink-soft)}
 
@@ -216,7 +248,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font
 .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:38px}
 .f-grid h4{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;font-weight:600}
 .f-grid a{display:block;color:var(--ink-soft);text-decoration:none;margin-bottom:8px}
-.f-grid a:hover{color:var(--bloom)}
+.f-grid a:hover{color:var(--rose)}
 .f-about{color:var(--ink-soft);max-width:38ch}
 .disclaimer{
   border-top:1px solid var(--line);padding-top:22px;
@@ -235,6 +267,9 @@ footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font
   .gal{grid-template-columns:repeat(2,1fr)}
   .f-grid{grid-template-columns:1fr}
   .nav-links{display:none}
+  .press,.crew,.leads,.bios{grid-template-columns:1fr}
+  .lead{grid-template-columns:1fr}
+  .lead .ph{max-width:240px}
   .burger{display:block}
 }
 @media(prefers-reduced-motion:reduce){
@@ -248,12 +283,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 
 <nav>
   <div class="nav-in">
-    <div class="logo"><span class="logo-mark">✿</span> Flowers for Joy</div>
+    <div class="logo"><img class="logo-mark" src="images/logo-mark.png" alt=""> Flowers for Joy</div>
     <div class="nav-links">
       <a href="#story">Our story</a>
       <a href="#how">How it works</a>
       <a href="#chapters">Chapters</a>
       <a href="#team">Team</a>
+      <a href="#press">Press</a>
       <a href="#help" class="btn">Get involved</a>
     </div>
     <button class="burger" aria-label="Menu">☰</button>
@@ -292,6 +328,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     <div class="stat"><div class="stat-n">3 cities</div><div class="stat-l">Austin · New York · Kuwait</div></div>
   </div>
 </div>
+
+<section class="watch" id="watch" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Watch our story</div>
+      <h2>How Flowers for Joy began.</h2>
+    </div>
+    <div class="video-wrap" id="video-wrap"></div>
+  </div>
+</section>
 
 <section class="story" id="story">
   <div class="wrap story-grid">
@@ -370,8 +416,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       </div>
       <div class="ch">
         <div class="ch-city">New York</div>
-        <div class="ch-status soon">Launching late August</div>
-        <p>Led by Seema's daughter and a friend's daughter. Mount Sinai has confirmed as the receiving clinic, and Trader Joe's has confirmed the flower donation.</p>
+        <div class="ch-status live">Now in NYC</div>
+        <p>Led by chapter chairs Serena Govil and Karina Redkar. Mount Sinai is the receiving clinic, and Trader Joe's donates the flowers.</p>
       </div>
       <div class="ch">
         <div class="ch-city">Kuwait</div>
@@ -393,43 +439,92 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <div class="eyebrow">Our team</div>
       <h2>The people who show up.</h2>
     </div>
-    <div class="team">
-      <div class="member">
-        <div class="ph ph-sq" data-img="images/team-seema.jpg"><div><span>✿</span>Photo</div></div>
-        <div class="m-name">Seema Govil</div>
-        <div class="m-role">Founder</div>
+
+    <div class="leads">
+      <div class="lead">
+        <div class="ph" data-img="images/team-seema.jpg"><div><span>✿</span>Photo</div></div>
+        <div>
+          <div class="m-name">Seema Govil</div>
+          <div class="m-role">Founder</div>
+          <p>Seema started Flowers for Joy in November 2024, during her own cancer treatment, with a single bouquet meant to bring a smile to everyone in the infusion room.</p>
+        </div>
       </div>
-      <div class="member">
-        <div class="ph ph-sq" data-img="images/team-chris.jpg"><div><span>✿</span>Photo</div></div>
-        <div class="m-name">Chris Kary</div>
-        <div class="m-role">Executive Director, Texas</div>
+      <div class="lead">
+        <div class="ph" data-img="images/team-chris.jpg"><div><span>✿</span>Photo</div></div>
+        <div>
+          <div class="m-name">C.J. (Chris) Kary</div>
+          <div class="m-role">Executive Director</div>
+          <p>Chris J. Kary is the Executive Director of Flowers for Joy, an organization dedicated to bringing beauty, hope, and joy to people facing cancer. Under his leadership, the organization delivers fresh flowers directly to patients in infusion rooms and to the nurses caring for them at oncology centers across the region.</p>
+          <p>Chris' connection to flowers goes back to his mother's rose garden and his father's lifelong search for purpose. For the last year and a half of his life, his father worked alongside him to build Flowers for Joy. “It remains one of the greatest honors of my life that we got to create this together before he passed,” he says. That experience shapes how he talks about the organization's work today: “There's nothing more rewarding than witnessing how a simple bouquet can brighten someone's day during their hardest moments.”</p>
+        </div>
       </div>
-      <div class="member">
-        <div class="ph ph-sq" data-img="images/team-3.jpg"><div><span>✿</span>Photo</div></div>
-        <div class="m-name">Volunteer name</div>
-        <div class="m-role">Role</div>
-      </div>
-      <div class="member">
-        <div class="ph ph-sq" data-img="images/team-4.jpg"><div><span>✿</span>Photo</div></div>
-        <div class="m-name">Volunteer name</div>
-        <div class="m-role">Role</div>
-      </div>
+    </div>
+
+    <h3 class="bio-group">Volunteers</h3>
+    <div class="bios">
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-pi.jpg">P</div><div><div class="m-name">Pi</div><div class="m-role">Volunteer</div>
+        <p>Pi is a volunteer with Flowers for Joy. For fifteen years, cancer was part of her family's life, through countless trips to MD Anderson, doctor appointments, and hours spent in infusion rooms. Over time, those places became part of her routine, but she never let them define who she was. Through it all, Pi tried to live one day at a time. “I chose joy whenever I could find it, laughter whenever we could share it, and optimism even on the hardest days,” she says. “That didn't mean ignoring the reality of what we were facing, it meant choosing how we wanted to live despite it.” Looking back, she says the greatest lesson of that journey is this: “life is not measured by the number of hospital visits or treatments, but by the love, hope, and joy we share along the way.”</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-lauren.jpg">L</div><div><div class="m-name">Lauren</div><div class="m-role">Volunteer</div>
+        <p>Lauren is a volunteer with Flowers for Joy and has played a key role in the organization's growth since its founding. It was Lauren's introduction of Seema to the American Cancer Society that first kickstarted Flowers for Joy, and she has continued to help bring its weekly deliveries to life ever since. She is also a mother of three daughters and lives in Austin with her husband, and she volunteers as a driver for the American Cancer Society's Road to Recovery Program. When she's not with Flowers for Joy, Lauren spends her time playing tennis, walking her dog, and watching tennis.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-missy.jpg">MP</div><div><div class="m-name">Missy Payne</div><div class="m-role">Volunteer</div>
+        <p>Missy is a volunteer with Flowers for Joy and a second grade teacher of 24 years. She describes herself as “a teacher, a mom, a dog lover, and someone who has always believed in showing up for others.” Now navigating her own breast cancer journey, she says she's found “an even deeper passion for supporting and encouraging others.” Outside of Flowers for Joy, Missy loves traveling, hiking, and spending time in nature with her boyfriend, her son, and their two dogs. Her hope is simple: to remind others that “even in the hardest seasons, there is still hope, strength, and purpose.”</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-neelu.jpg">N</div><div><div class="m-name">Neelu</div><div class="m-role">Volunteer</div>
+        <p>Neelu is a volunteer with Flowers for Joy, an artist, graphic designer, educator, mother of two, and cancer survivor. She believes in “the power of creativity, compassion, and community,” and says her own journey has taught her resilience, gratitude, and the importance of giving back. Through art and volunteer work, Neelu hopes to bring encouragement, hope, and meaningful connections to others. “I'm grateful to be part of an organization that makes a positive difference,” she says, “and I'm excited to contribute my time, creativity, and heart in service to our community.”</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-kevin.jpg">K</div><div><div class="m-name">Kevin</div><div class="m-role">Volunteer</div>
+        <p>Kevin is a volunteer with Flowers for Joy who delivers flowers from La Fleur Florist to patients and nurses at oncology centers across the region. Kevin's connection to the mission is personal. As a cancer survivor and former infusion patient at Texas Oncology, he says, “it gives me great satisfaction to give back.”</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-timothy.jpg">TK</div><div><div class="m-name">Timothy Kary</div><div class="m-role">Volunteer</div></div></div>
+    </div>
+
+    <h3 class="bio-group">Vendor partners</h3>
+    <div class="bios">
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-ren.jpg">RH</div><div><div class="m-name">Ren Hogue</div><div class="m-role">Store Manager, Whole Foods Market</div>
+        <p>Ren Hogue is the Store Manager at Whole Foods Market and one of Flowers for Joy's vendor partners. His support helps supply the fresh flowers behind our weekly deliveries, making it possible to bring color and comfort to patients and nurses at the oncology centers we serve.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-kim.jpg">K</div><div><div class="m-name">Kim</div><div class="m-role">Owner, La Fleur Florist</div>
+        <p>Kim is the owner of La Fleur Florist and one of Flowers for Joy's vendor partners, generously donating flowers that go directly to patients and nurses at oncology centers across the region. Kim's decision to get involved came after losing her niece to a long battle with esophageal cancer. “I felt the need to send some love and beauty to others in the midst of the battle,” she says. When Seema came to her shop and shared her vision for Flowers for Joy, Kim didn't hesitate: “I said I'm in!!!”</p></div></div>
+    </div>
+
+    <h3 class="bio-group">New York chapter chairs</h3>
+    <div class="bios">
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-serena.jpg">SG</div><div><div class="m-name">Serena Govil</div><div class="m-role">NYC Chapter Chair</div>
+        <p>Serena Govil is a Flowers for Joy NYC Chapter Chair and a Master of Health Administration candidate at Columbia University's Mailman School of Public Health. Her background in Medicare and Medicaid operations and healthcare access research gives her a close view of the patient experience Flowers for Joy exists to brighten. She's helping lead the chapter's launch as it brings fresh flowers to oncology patients and nurses across New York City.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-karina.jpg">KR</div><div><div class="m-name">Karina Redkar</div><div class="m-role">NYC Chapter Chair</div>
+        <p>Karina Redkar is a Pilates instructor and wellness community builder based in New York City, currently completing Equinox's 450-hour Comprehensive Pilates Certification. As a Flowers for Joy NYC Chapter Chair, she's working to bring the organization from Texas to oncology wards across New York City, extending her belief in the power of movement and connection to healing in a different form.</p></div></div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="press">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">In the press</div>
+      <h2>Stories about Flowers for Joy.</h2>
+    </div>
+    <div class="press">
+      <a class="pcard" href="https://www.keepaustinfed.org/blog/flowersforjoy" target="_blank" rel="noopener"><span class="p-src">Keep Austin Fed</span><span class="p-title">Recipient Partner Spotlight: Flowers for Joy</span><span class="p-go">Read article &rarr;</span></a>
+      <a class="pcard" href="https://www.franchisejournal.com/flowersforjoy" target="_blank" rel="noopener"><span class="p-src">Franchise Journal</span><span class="p-title">Flowers for Joy: How One Woman Is Franchising Compassion</span><span class="p-go">Read article &rarr;</span></a>
+      <a class="pcard" href="https://www.franchisejournal.com/the-woman-who-forgot-to-feel-sorry-for-herself" target="_blank" rel="noopener"><span class="p-src">Franchise Journal</span><span class="p-title">The Woman Who Forgot to Feel Sorry for Herself</span><span class="p-go">Read article &rarr;</span></a>
+      <a class="pcard" href="https://www.lukecoutinho.com/blogs/flowers-for-joy-cancer-seema/" target="_blank" rel="noopener"><span class="p-src">Luke Coutinho</span><span class="p-title">Flowers for Joy: How One Woman Turned Chemo Rooms Into Gardens of Hope</span><span class="p-go">Read article &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">With thanks to</div>
-      <h2>Our flower partners.</h2>
-      <p>Every bouquet we deliver was donated by someone who chose to give it a second life.</p>
+      <h2>Our partners and donors.</h2>
+      <p>Every bouquet we deliver is made possible by people and businesses who chose to give.</p>
     </div>
+    <div class="p-group">Flower partners</div>
     <div class="partners">
       <div class="partner">Whole Foods</div>
       <div class="partner">Trader Joe's</div>
       <div class="partner">La Fleur Florist</div>
       <div class="partner" style="border-style:dashed;color:#9AA09C">Your business here</div>
+    </div>
+    <div class="p-group">Donors</div>
+    <div class="partners">
+      <div class="partner">The DRIPBaR</div>
     </div>
   </div>
 </section>
@@ -479,7 +574,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <div class="logo" style="margin-bottom:14px"><span class="logo-mark">✿</span> Flowers for Joy</div>
+        <div class="logo" style="margin-bottom:14px"><img class="logo-mark" src="images/logo-mark.png" alt=""> Flowers for Joy</div>
         <p class="f-about">Donated flowers, delivered weekly to cancer patients in chemotherapy and radiation. Powered by the nonprofit MDJunior.org.</p>
       </div>
       <div>
@@ -504,6 +599,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 </footer>
 
 <script>
+// ===== STORY VIDEO =====
+// Paste the YouTube or Google Drive link between the quotes. The "Watch our story" section
+// stays hidden until a link is here. Vertical (Shorts) videos are detected.
+var STORY_VIDEO = 'https://drive.google.com/file/d/1BH_julgpACwZHUqQngP80aMEKlCi8lqR/view';
+(function(){
+  var drive = STORY_VIDEO.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/);
+  var m = STORY_VIDEO.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || STORY_VIDEO.match(/^([\w-]{11})$/);
+  if (!m && !drive) return;
+  var wrap = document.getElementById('video-wrap');
+  if (/shorts\//.test(STORY_VIDEO)) wrap.classList.add('tall');
+  var f = document.createElement('iframe');
+  f.src = drive ? 'https://drive.google.com/file/d/' + drive[1] + '/preview'
+                : 'https://www.youtube-nocookie.com/embed/' + m[1] + '?rel=0';
+  f.title = 'Flowers for Joy story video';
+  f.allow = 'encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.loading = 'lazy';
+  wrap.appendChild(f);
+  document.getElementById('watch').hidden = false;
+})();
+
 // Volunteer form -> opens the visitor's email app with the details filled in,
 // addressed to Seema. No server needed.
 function sendVolunteer(e){
