@@ -218,6 +218,10 @@ h2{
 
 /* Partners */
 .partners{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+a.partner{text-decoration:none;color:var(--ink-soft);transition:border-color .2s,color .2s,transform .2s}
+a.partner:hover{border-color:var(--stem);color:var(--ink);transform:translateY(-1px)}
+a.partner:not(.partner-open)::after{content:" \2197";font-size:.8em;color:var(--stem)}
+a.partner.partner-open{border-style:dashed;color:#8A918D}
 .partner{
   border:1px solid var(--line);background:#fff;
   padding:16px 26px;font-size:.9rem;color:var(--ink-soft);font-weight:500;
@@ -504,16 +508,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <h2>Our partners and donors.</h2>
       <p>Every bouquet we deliver is made possible by people and businesses who chose to give.</p>
     </div>
-    <div class="p-group">Flower partners</div>
+    <div class="p-group">Partners and Donors</div>
     <div class="partners">
-      <div class="partner">Whole Foods</div>
-      <div class="partner">Trader Joe's</div>
-      <div class="partner">La Fleur Florist</div>
-      <div class="partner" style="border-style:dashed;color:#9AA09C">Your business here</div>
+      <a class="partner" href="https://www.wholefoodsmarket.com" target="_blank" rel="noopener">Whole Foods</a>
+      <a class="partner" href="https://www.traderjoes.com" target="_blank" rel="noopener">Trader Joe's</a>
+      <a class="partner" href="https://lafleurflowermarket.com" target="_blank" rel="noopener">La Fleur Florist</a>
+      <a class="partner" href="https://www.venusetfleur.com" target="_blank" rel="noopener">Venus et Fleur</a>
+      <a class="partner partner-open" href="#help">Your business here</a>
     </div>
-    <div class="p-group">Donors</div>
+    <div class="p-group">Partners and Business Advisors</div>
     <div class="partners">
-      <div class="partner">The DRIPBaR</div>
+      <a class="partner" href="https://thedripbar.com/austin-the-domain/" target="_blank" rel="noopener">The DRIPBaR</a>
+      <a class="partner" href="https://www.nextgenfbs.com" target="_blank" rel="noopener">NextGen Business &amp; Franchise Solutions</a>
     </div>
   </div>
 </section>
