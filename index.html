@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ==================== EDIT 15 · COLORS ====================
+   Change a hex value here and it updates everywhere on the site. */
 :root{
   color-scheme:light;
   --ink:#20342A;
@@ -61,6 +63,15 @@ nav{
 .p-title{font-family:'Fraunces',serif;font-size:1.22rem;font-weight:600;line-height:1.3}
 .p-go{margin-top:auto;padding-top:6px;font-size:.85rem;color:var(--ink-soft)}
 /* Partner groups + volunteer names */
+/* Blog */
+.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.post{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+.post-date{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stem);font-weight:600}
+.post-title{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;margin:8px 0 8px;line-height:1.3}
+.post-excerpt{color:var(--ink-soft);font-size:.93rem}
+.post details{margin-top:12px}
+.post summary{cursor:pointer;color:var(--rose);font-size:.88rem;font-weight:600}
+.post details p{color:var(--ink-soft);font-size:.93rem;margin-top:10px;line-height:1.65}
 .p-group{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:28px 0 12px}
 .p-group:first-of-type{margin-top:0}
 /* Team bios */
@@ -220,7 +231,12 @@ h2{
 .partners{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 a.partner{text-decoration:none;color:var(--ink-soft);transition:border-color .2s,color .2s,transform .2s}
 a.partner:hover{border-color:var(--stem);color:var(--ink);transform:translateY(-1px)}
-a.partner:not(.partner-open)::after{content:" \2197";font-size:.8em;color:var(--stem)}
+a.partner .p-name::after{content:" \2197";font-size:.8em;color:var(--stem)}
+a.partner .p-sub{display:block;font-size:.76rem;color:var(--ink-soft);margin-top:2px;letter-spacing:.01em}
+a.partner .p-name{font-weight:500}
+a.partner:has(.p-sub){padding-top:11px;padding-bottom:11px;line-height:1.35}
+a.partner.has-logo{display:inline-flex;align-items:center;justify-content:center;height:70px;padding:10px 22px;background:#fff}
+a.partner.has-logo img{max-height:46px;max-width:170px;width:auto;height:auto;display:block}
 a.partner.partner-open{border-style:dashed;color:#8A918D}
 .partner{
   border:1px solid var(--line);background:#fff;
@@ -272,7 +288,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font
   .gal{grid-template-columns:repeat(2,1fr)}
   .f-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .press,.crew,.bios{grid-template-columns:1fr}
+  .press,.crew,.bios,.posts{grid-template-columns:1fr}
   .bio{flex-direction:column;gap:14px}
   .burger{display:block}
 }
@@ -285,6 +301,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 </head>
 <body>
 
+<!-- ==================== EDIT 1 · TOP MENU ==================== -->
+<!-- Each link jumps to a section by its id, e.g. href="#team". -->
 <nav>
   <div class="nav-in">
     <div class="logo"><img class="logo-mark" src="images/logo-mark.png" alt=""> Flowers for Joy</div>
@@ -294,12 +312,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <a href="#chapters">Chapters</a>
       <a href="#team">Team</a>
       <a href="#press">Press</a>
+      <!-- <a href="#blog">Blog</a> -->
       <a href="#help" class="btn">Get involved</a>
     </div>
     <button class="burger" aria-label="Menu">☰</button>
   </div>
 </nav>
 
+<!-- ==================== EDIT 2 · OPENING (headline, intro, buttons) ==================== -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -324,6 +344,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </header>
 
+<!-- ==================== EDIT 3 · NUMBERS STRIP ==================== -->
+<!-- Update these by hand when the numbers change. -->
 <div class="strip">
   <div class="wrap strip-grid">
     <div class="stat"><div class="stat-n">Nov 2024</div><div class="stat-l">First delivery</div></div>
@@ -333,6 +355,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </div>
 
+<!-- ==================== EDIT 4 · STORY VIDEO ==================== -->
+<!-- To replace the video, overwrite video/story.mp4 and video/poster.jpg (same names). -->
 <section class="watch" id="watch">
   <div class="wrap">
     <div class="sec-head">
@@ -343,6 +367,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
+<!-- ==================== EDIT 5 · OUR STORY ==================== -->
 <section class="story" id="story">
   <div class="wrap story-grid">
     <div>
@@ -358,6 +383,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
+<!-- ==================== EDIT 6 · HOW IT WORKS ==================== -->
 <section id="how">
   <div class="wrap">
     <div class="sec-head">
@@ -385,13 +411,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- ==================== EDIT 7 · PHOTO GALLERY ==================== -->
+<!-- The first photo is shown large. Missing files hide themselves. -->
+<section id="gallery" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">From our deliveries</div>
       <h2>What a Monday looks like.</h2>
     </div>
-    <!-- PHOTO POLICY (per Seema, 7/29): All flower photos should feature volunteers, nurses, or florists — NOT patients — with ONE exception: the single lobby photo of many patients holding flowers, used as the feature image below. Photos of Chris Kary handing flowers to patients are available on request but are not the default model. Keep patient identities protected. -->
+    <!-- PHOTO POLICY: Photos should feature volunteers, nurses, or florists. Patient photos are allowed ONLY with the patient's written consent covering website use (the three patient photos below have signed consent). -->
     <div class="gal">
       <div class="ph ph-sq" data-img="images/gallery-1.jpg"><div><span>✿</span>Volunteers</div></div>
       <div class="ph ph-sq" data-img="images/gallery-3.jpg"><div><span>✿</span>Volunteer &amp; florist</div></div>
@@ -405,6 +433,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
+<!-- ==================== EDIT 8 · CHAPTERS ==================== -->
+<!-- Status label: class="ch-status live" (pink) or class="ch-status soon" (grey). -->
 <section id="chapters">
   <div class="wrap">
     <div class="sec-head">
@@ -437,6 +467,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
+<!-- ==================== EDIT 9 · TEAM ==================== -->
+<!-- Copy one <div class="bio">…</div> block to add a person. Photos go in images/ (see README). -->
 <section id="team" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
@@ -486,6 +518,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
+<!-- ==================== EDIT 10 · PRESS ==================== -->
+<!-- Copy one <a class="pcard">…</a> line to add an article. -->
 <section id="press">
   <div class="wrap">
     <div class="sec-head">
@@ -501,7 +535,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
-<section style="background:#fff;border-top:1px solid var(--line)">
+<!-- ==================== EDIT 16 · BLOG (hidden until turned on) ==================== -->
+<!-- To turn the blog on: remove the word  hidden  from the <section> line below,
+     and un-comment the "Blog" link in EDIT 1 (top menu). See README, "Turning on the blog". -->
+<section id="blog" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">From our blog</div>
+      <h2>Stories from the deliveries.</h2>
+    </div>
+    <div class="posts">
+      <!-- POST TEMPLATE: copy this whole <article> block for each new post. Newest post goes first. -->
+      <article class="post">
+        <div class="post-date">Month Year</div>
+        <h3 class="post-title">Post title</h3>
+        <p class="post-excerpt">A one- or two-sentence summary that shows before "Read more".</p>
+        <details>
+          <summary>Read more</summary>
+          <p>First paragraph of the full post.</p>
+          <p>Second paragraph. Add as many &lt;p&gt; paragraphs as needed.</p>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EDIT 11 · PARTNERS AND DONORS ==================== -->
+<!-- Copy one <a class="partner">…</a> line to add a partner. Keep "Your business here" last. -->
+<section id="partners" style="background:#fff;border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">With thanks to</div>
@@ -510,20 +571,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     </div>
     <div class="p-group">Partners and Donors</div>
     <div class="partners">
-      <a class="partner" href="https://www.wholefoodsmarket.com" target="_blank" rel="noopener">Whole Foods</a>
-      <a class="partner" href="https://www.traderjoes.com" target="_blank" rel="noopener">Trader Joe's</a>
-      <a class="partner" href="https://lafleurflowermarket.com" target="_blank" rel="noopener">La Fleur Florist</a>
-      <a class="partner" href="https://www.venusetfleur.com" target="_blank" rel="noopener">Venus et Fleur</a>
+      <a class="partner" href="https://www.wholefoodsmarket.com" target="_blank" rel="noopener" data-logo="images/logos/whole-foods.png"><span class="p-name">Whole Foods</span></a>
+      <a class="partner" href="https://www.traderjoes.com" target="_blank" rel="noopener" data-logo="images/logos/trader-joes.png"><span class="p-name">Trader Joe's</span></a>
+      <a class="partner" href="https://lafleurflowermarket.com" target="_blank" rel="noopener" data-logo="images/logos/la-fleur.png"><span class="p-name">La Fleur Florist</span></a>
+      <a class="partner" href="https://www.venusetfleur.com" target="_blank" rel="noopener" data-logo="images/logos/venus-et-fleur.png"><span class="p-name">Venus et Fleur</span></a>
       <a class="partner partner-open" href="#help">Your business here</a>
     </div>
     <div class="p-group">Partners and Business Advisors</div>
     <div class="partners">
-      <a class="partner" href="https://thedripbar.com/austin-the-domain/" target="_blank" rel="noopener">The DRIPBaR</a>
-      <a class="partner" href="https://www.nextgenfbs.com" target="_blank" rel="noopener">NextGen Business &amp; Franchise Solutions</a>
+      <a class="partner" href="https://thedripbar.com/austin-the-domain/" target="_blank" rel="noopener" data-logo="images/logos/dripbar.png"><span class="p-name">The DRIPBaR</span></a>
+      <a class="partner" href="https://www.nextgenfbs.com" target="_blank" rel="noopener" data-logo="images/logos/nextgen.png"><span class="p-name">NextGen</span><span class="p-sub">Business &amp; Franchise Solutions</span></a>
     </div>
   </div>
 </section>
 
+<!-- ==================== EDIT 12 · GET INVOLVED (volunteer form, donation QR, start a chapter) ==================== -->
+<!-- The email these go to is set once in EDIT 14 at the bottom of this file. -->
 <section class="band" id="help">
   <div class="wrap">
     <h2>Help us grow the joy.</h2>
@@ -558,13 +621,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <div class="icard">
         <h3>Start a chapter</h3>
         <p>If you can find a clinic and a few willing hands, we'll share the playbook and help you launch in your city.</p>
-        <a href="mailto:Seema@thefranchiseconsultingcompany.com?subject=Starting%20a%20Flowers%20for%20Joy%20chapter&amp;body=Hi%20Seema%2C%20I'd%20like%20to%20explore%20starting%20a%20chapter%20in%20my%20city.%20Here's%20a%20bit%20about%20me%3A" class="btn btn-sage">Email us</a>
+        <a id="chapter-email" href="#help" class="btn btn-sage">Email us</a>
       </div>
 
     </div>
   </div>
 </section>
 
+<!-- ==================== EDIT 13 · FOOTER (about line, links, Instagram, allergy note, year) ==================== -->
 <footer>
   <div class="wrap">
     <div class="f-grid">
@@ -594,7 +658,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 </footer>
 
 <script>
-// Story video plays from video/story.mp4 (see the "watch" section).
+// ==================== EDIT 14 · SETTINGS ====================
+// The email address that receives volunteer sign-ups and "Start a chapter" emails.
+var CONTACT_EMAIL = 'Seema@thefranchiseconsultingcompany.com';
+// The date of the first Monday delivery. The Monday Ledger dots count from here.
+var FIRST_MONDAY = new Date(2024, 10, 4);   // year, month (0 = January, so 10 = November), day
+// ==================== END OF SETTINGS — nothing below needs editing ====================
+
+document.getElementById('chapter-email').href = 'mailto:' + CONTACT_EMAIL +
+  '?subject=' + encodeURIComponent('Starting a Flowers for Joy chapter') +
+  '&body=' + encodeURIComponent("Hi Seema, I'd like to explore starting a chapter in my city. Here's a bit about me:");
 
 // Volunteer form -> opens the visitor's email app with the details filled in,
 // addressed to Seema. No server needed.
@@ -606,7 +679,7 @@ function sendVolunteer(e){
   var em=document.getElementById('v-email').value.trim();
   var h=document.getElementById('v-help').value.trim();
   if(!f||!l||!c||!em){ alert('Please fill in your name, city, and email.'); return false; }
-  var to='Seema@thefranchiseconsultingcompany.com';
+  var to=CONTACT_EMAIL;
   var subject='Flowers for Joy — Volunteer sign-up: '+f+' '+l;
   var body='Name: '+f+' '+l+'\nCity: '+c+'\nEmail: '+em+'\nHow I can help: '+(h||'(not specified)')+'\n\nI\'d like to volunteer with Flowers for Joy.';
   window.location.href='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
@@ -637,8 +710,21 @@ function sendVolunteer(e){
   });
 })();
 
+// Partner logos: a box with data-logo shows the logo once that file exists in
+// images/logos/, and stays a text box until then.
+document.querySelectorAll('a.partner[data-logo]').forEach(function(box){
+  var img = new Image();
+  img.onload = function(){
+    var name = box.textContent.trim();
+    box.innerHTML = '';
+    img.alt = name; box.title = name;
+    box.appendChild(img); box.classList.add('has-logo');
+  };
+  img.src = box.getAttribute('data-logo');
+});
+
 (function(){
-  var start = new Date(2024,10,4); // first Monday, Nov 2024
+  var start = FIRST_MONDAY;
   var now = new Date();
   var weeks = Math.max(1, Math.floor((now - start)/(1000*60*60*24*7)));
   var el = document.getElementById('dots');
