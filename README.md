@@ -104,7 +104,7 @@ name in that box's `data-logo`, and the box switches from text to the logo autom
 | La Fleur Florist | `images/logos/la-fleur.png` |
 | Venus et Fleur | `images/logos/venus-et-fleur.png` |
 | The DRIPBaR | `images/logos/dripbar.png` |
-| NextGen | `images/logos/nextgen.png` |
+| NextGen | `images/logos/nextgen.png` (in place) |
 
 - Use a PNG with a transparent background if possible, about 200 px tall.
 - **Ask permission before using a company's logo.** Large brands (Whole Foods, Trader
