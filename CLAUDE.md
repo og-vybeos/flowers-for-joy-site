@@ -20,6 +20,7 @@ GitHub issue or comment. Work carefully: the site is public and represents real 
 4. **Keep class names and structure** so the existing styles and scripts keep working.
 5. **Don't change the donation QR (`images/donate-qr.png`), the Zelle recipient text, or the
    contact email** unless the request explicitly asks for it, and say so clearly in the PR.
+   The contact email also appears in `privacy.html`; change both together.
 6. **Patient privacy.** Photos should show volunteers, nurses or florists. If a photo appears to
    show a patient in a medical setting and the request doesn't confirm written consent for
    website use, don't publish it. Ask in a comment first.
@@ -27,6 +28,10 @@ GitHub issue or comment. Work carefully: the site is public and represents real 
 8. **Always work through a pull request** with a short plain-English summary of what changed
    and which EDIT section(s) you touched. Never push straight to the main branch.
 9. If you add a new section, file name pattern or setting, **update README.md** to match.
+10. **Accessibility.** Every meaningful image needs `alt` text, every form field an `aria-label`
+    or `<label>`, and text must keep at least 4.5:1 contrast. Don't remove the skip link or
+    the `<main>` element. Don't change `privacy.html` claims (no cookies, no tracking) unless
+    the request explicitly asks; if a change adds tracking or a third-party embed, flag it in the PR.
 
 ## Handling files people upload
 New files usually arrive in `uploads/`. Process each one, move it to its final place, and

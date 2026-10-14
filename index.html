@@ -80,7 +80,7 @@ nav{
 .bio-group{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin:44px 0 16px;border-top:1px solid var(--line);padding-top:26px}
 .bios{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .bio{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:20px;background:#fff}
-.ph.bio-ph{width:80px;height:80px;flex:0 0 80px;border-radius:50%;border:none;padding:0;background:var(--bloom-soft);color:var(--rose);font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;letter-spacing:.02em;display:grid;place-items:center}
+.ph.bio-ph{width:80px;height:80px;flex:0 0 80px;border-radius:50%;border:none;padding:0;background:var(--bloom-soft);color:#8C3D54;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;letter-spacing:.02em;display:grid;place-items:center}
 .ph.bio-ph.has-img{background:none}
 .group-photo{margin:0 0 22px}
 .group-photo img{width:100%;max-width:460px;border-radius:12px;display:block}
@@ -237,7 +237,7 @@ a.partner .p-name{font-weight:500}
 a.partner:has(.p-sub){padding-top:11px;padding-bottom:11px;line-height:1.35}
 a.partner.has-logo{display:inline-flex;align-items:center;justify-content:center;height:76px;padding:8px 20px;background:#fff}
 a.partner.has-logo img{max-height:60px;max-width:180px;width:auto;height:auto;display:block}
-a.partner.partner-open{border-style:dashed;color:#8A918D}
+a.partner.partner-open{border-style:dashed;color:var(--ink-soft)}
 .partner{
   border:1px solid var(--line);background:#fff;
   padding:16px 26px;font-size:.9rem;color:var(--ink-soft);font-weight:500;
@@ -254,7 +254,7 @@ a.partner.partner-open{border-style:dashed;color:#8A918D}
 /* Get involved — three cards */
 .involve{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:8px;text-align:left}
 .icard{background:#fff;border:1px solid var(--line);padding:30px 26px;display:flex;flex-direction:column}
-.icard h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;margin-bottom:10px}
+.icard h3{color:var(--ink);font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;margin-bottom:10px}
 .icard p{color:var(--ink-soft);font-size:.94rem;margin-bottom:18px}
 .icard .btn{align-self:flex-start;margin-top:auto}
 .vform{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
@@ -273,9 +273,13 @@ footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font
 .f-about{color:var(--ink-soft);max-width:38ch}
 .disclaimer{
   border-top:1px solid var(--line);padding-top:22px;
-  font-size:.78rem;color:#8A918D;line-height:1.6;
+  font-size:.78rem;color:var(--ink-soft);line-height:1.6;
 }
 .disclaimer strong{color:var(--ink-soft)}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--forest);color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none}
+.skip:focus{left:8px}
+.f-legal{margin-top:10px}
+.f-legal a{color:inherit}
 
 @media(max-width:900px){
   .hero-grid,.story-grid{grid-template-columns:1fr;gap:38px}
@@ -300,6 +304,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- ==================== EDIT 1 · TOP MENU ==================== -->
 <!-- Each link jumps to a section by its id, e.g. href="#team". -->
@@ -320,6 +325,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 </nav>
 
 <!-- ==================== EDIT 2 · OPENING (headline, intro, buttons) ==================== -->
+<main id="main">
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -363,7 +369,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <div class="eyebrow">Watch our story</div>
       <h2>How Flowers for Joy began.</h2>
     </div>
-    <div class="video-wrap" id="video-wrap"><video controls preload="metadata" playsinline poster="video/poster.jpg"><source src="video/story.mp4" type="video/mp4">Your browser can't play this video.</video></div>
+    <div class="video-wrap" id="video-wrap"><video aria-label="Flowers for Joy story video, with captions" controls preload="metadata" playsinline poster="video/poster.jpg"><source src="video/story.mp4" type="video/mp4">Your browser can't play this video.</video></div>
   </div>
 </section>
 
@@ -597,12 +603,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <div class="icard">
         <h3>Volunteer</h3>
         <p>An hour a week is enough. Tell us a little about you and we'll be in touch.</p>
-        <form class="vform" onsubmit="return sendVolunteer(event)">
-          <input type="text" id="v-first" placeholder="First name" required>
-          <input type="text" id="v-last" placeholder="Last name" required>
-          <input type="text" id="v-city" placeholder="City" required>
-          <input type="email" id="v-email" placeholder="Email" required>
-          <input type="text" id="v-help" placeholder="How you'd like to help (optional)">
+        <form class="vform" aria-label="Volunteer sign-up" onsubmit="return sendVolunteer(event)">
+          <input type="text" id="v-first" placeholder="First name" aria-label="First name" autocomplete="given-name" required>
+          <input type="text" id="v-last" placeholder="Last name" aria-label="Last name" autocomplete="family-name" required>
+          <input type="text" id="v-city" placeholder="City" aria-label="City" autocomplete="address-level2" required>
+          <input type="email" id="v-email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+          <input type="text" id="v-help" placeholder="How you'd like to help (optional)" aria-label="How you'd like to help (optional)">
         </form>
         <button type="button" class="btn btn-pink" onclick="sendVolunteer(event)">Send</button>
       </div>
@@ -628,13 +634,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   </div>
 </section>
 
+</main>
+
 <!-- ==================== EDIT 13 · FOOTER (about line, links, Instagram, allergy note, year) ==================== -->
 <footer>
   <div class="wrap">
     <div class="f-grid">
       <div>
         <div class="logo" style="margin-bottom:14px"><img class="logo-mark" src="images/logo-mark.png" alt=""> Flowers for Joy</div>
-        <p class="f-about">Donated flowers, delivered weekly to cancer patients in chemotherapy and radiation. Powered by the nonprofit MDJunior.org.</p>
+        <p class="f-about">Donated flowers, delivered weekly to cancer patients in chemotherapy and radiation. A program of the nonprofit MDJunior Inc.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -652,7 +660,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     </div>
     <div class="disclaimer">
       <strong>A note on flowers and allergies.</strong> Arrangements are handed to clinical staff, who determine whether flowers are appropriate for a given patient or unit. In infusion rooms and radiation areas, nurses and volunteers always ask patients and caregivers first whether they would like flowers. We also share flowers with people waiting in labs, follow-up appointments, and other waiting areas — always by invitation, never assumed. Patients or families with allergies, scent sensitivities, or immune considerations should speak with their care team.<br><br>
-      © 2026 Flowers for Joy. Powered by MDJunior.org.
+      © 2026 Flowers for Joy · A program of <a href="https://mdjunior.org" target="_blank" rel="noopener" style="color:inherit">MDJunior Inc.</a><br>
+      <div class="f-legal"><a href="privacy.html">Privacy, Terms &amp; Accessibility</a> · Website by <a href="https://vybeos.ai" target="_blank" rel="noopener">VyBeos</a></div>
     </div>
   </div>
 </footer>

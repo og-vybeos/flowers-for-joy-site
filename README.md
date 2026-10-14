@@ -10,6 +10,7 @@ Most changes take a few minutes and only touch one file, `index.html`.
 
 ```
 index.html     The whole website: all text, sections, links and styles
+privacy.html   Privacy notice, site terms and accessibility statement (linked in the footer)
 images/        All photos, the logo, and the donation QR code
 images/logos/  Partner and donor logos (optional; see "Add a partner logo")
 video/         The story video (story.mp4) and its preview image (poster.jpg)
@@ -199,6 +200,8 @@ var CONTACT_EMAIL = 'Seema@thefranchiseconsultingcompany.com';
 ```
 
 Both the volunteer form and the "Start a chapter" button use it.
+**Also change it in `privacy.html`**: it appears once in the Accessibility section
+(both in `href="mailto:..."` and in the visible text).
 Note: the volunteer form opens the visitor's own email app with their details filled in.
 It doesn't send anything by itself.
 
@@ -225,7 +228,22 @@ Section ids: `watch`, `story`, `how`, `gallery`, `chapters`, `team`, `press`,
 
 ### Footer, Instagram, allergy note, year (EDIT 13)
 
-Edit the text directly. Each year, update `© 2026` at the bottom.
+Edit the text directly. Each year, update `© 2026` at the bottom of **both** `index.html`
+and `privacy.html`. The footer's last line links to `privacy.html` and credits the website builder.
+
+### Privacy, terms and accessibility page (privacy.html)
+
+A separate, plain page with three sections: Privacy, Site terms and Accessibility. Edit the
+text directly. Whenever you change it, update the "Last updated" date near the top.
+Keep it truthful: if you ever add a tool that tracks visitors (analytics, a chat widget,
+an embedded form or donation service), update the Privacy section to say so.
+
+Accessibility matters here: the site gets checked for it, and complaints are common. When
+you add content:
+- Give every meaningful image a short description in `alt="..."`. Use `alt=""` for decorative ones.
+- Keep captions on any video with speech.
+- Don't use light gray or light pink for text. Stick to the existing text colors.
+- Every new form field needs an `aria-label` (or a `<label>`), like the volunteer form.
 
 ### Colors (EDIT 15)
 
@@ -302,6 +320,7 @@ The menu and footer use `images/logo-mark.png`. Replace it with a new square ima
 - [ ] Any new photo shows (not a blank or initials circle)
 - [ ] The video plays
 - [ ] The volunteer form opens an email to the right address
+- [ ] Text is easy to read (no pale text on light backgrounds), and new images have `alt` text
 
 ---
 
