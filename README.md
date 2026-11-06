@@ -65,7 +65,7 @@ GoDaddy or Bluehost).
 | EDIT 11 | Partners and donors; partners and business advisors |
 | EDIT 12 | Get involved: volunteer form, donation QR, start a chapter |
 | EDIT 13 | Footer: about line, links, Instagram, allergy note, copyright year |
-| EDIT 14 | Settings: contact email and first-delivery date (at the bottom of the file) |
+| EDIT 14 | Settings: contact email, first-delivery date, missed Mondays (at the bottom of the file) |
 | EDIT 15 | Colors (at the top of the file) |
 | EDIT 16 | Blog (built but hidden; see "Turning on the blog") |
 
@@ -104,13 +104,24 @@ name in that box's `data-logo`, and the box switches from text to the logo autom
 | Trader Joe's | `images/logos/trader-joes.png` |
 | La Fleur Florist | `images/logos/la-fleur.png` |
 | Venus et Fleur | `images/logos/venus-et-fleur.png` |
+| TV Asia | `images/logos/tv-asia.png` |
 | The DRIPBaR | `images/logos/dripbar.png` |
-| NextGen | `images/logos/nextgen.png` (in place) |
+| NextGen | `images/logos/nextgen.png` |
+| Keep Austin Fed (Nonprofit Partners card) | `images/logos/keep-austin-fed.png` |
+
+All of these are in place.
 
 - Use a PNG with a transparent background if possible, about 200 px tall.
 - **Ask permission before using a company's logo.** Large brands (Whole Foods, Trader
   Joe's) have strict logo rules. Ask your store contact first. Until a logo is added,
   the box simply shows the name.
+
+### Nonprofit partners (EDIT 11)
+
+Below the logo boxes, each nonprofit partner gets a card with a photo, its logo and a short
+text. To add one, copy the whole `<div class="np-card">…</div>` block, then change the photo
+(`images/<name>.jpg`, portrait works best), the logo, the link and the text. Keep Austin Fed's
+card has a marked spot for its description, still to come.
 
 ### Add a press article (EDIT 10)
 
@@ -142,18 +153,22 @@ under 500 KB, into `images/` using the name below:
 
 | Person          | File name           | Status |
 |-----------------|---------------------|--------|
-| Seema Govil     | `avatar-seema.jpg`  | in place |
-| Chris Kary      | `avatar-chris.jpg`  | in place |
-| Pi              | `team-pi.jpg`       | in place |
-| Lauren          | `team-lauren.jpg`   | in place |
-| Missy Payne     | `team-missy.jpg`    | in place |
-| Neelu           | `team-neelu.jpg`    | in place |
-| Kevin           | `team-kevin.jpg`    | in place |
-| Timothy Kary    | `team-timothy.jpg`  | in place |
-| Kim             | `team-kim.jpg`      | in place |
-| Ren Hogue       | `team-ren.jpg`      | **needed** |
-| Serena Govil    | `team-serena.jpg`   | **needed** (a shared photo of both NYC chairs is `nyc-chairs.jpg`) |
-| Karina Redkar   | `team-karina.jpg`   | **needed** |
+| Seema Govil            | `avatar-seema.jpg`   | in place |
+| Christopher John Kary  | `avatar-chris.jpg`   | in place |
+| Anjali Kaul Zutshi     | `team-anjali.jpg`    | in place |
+| Timothy Paul Kary      | `team-timothy.jpg`   | in place |
+| Lauren Jo Simmons      | `team-lauren.jpg`    | in place |
+| Pi Crowley             | `team-pi.jpg`        | in place |
+| Missy Payne            | `team-missy.jpg`     | in place |
+| Neelu Amar             | `team-neelu.jpg`     | in place |
+| Kevin                  | `team-kevin.jpg`     | in place |
+| Kim (La Fleur)         | `team-kim.jpg`       | in place |
+| Karina Redkar          | `team-karina.jpg`    | in place |
+| Serena Govil           | `team-serena.jpg`    | in place (a shared photo of both NYC chairs is `nyc-chairs.jpg`) |
+
+The Whole Foods and Trader Joe's cards under **Vendor partners** use their logos
+(`images/logos/whole-foods.png`, `trader-joes.png`) instead of a person's photo. By request,
+store managers aren't named there, since they change.
 
 ### Add a gallery photo (EDIT 7)
 
@@ -204,6 +219,21 @@ Both the volunteer form and the "Start a chapter" button use it.
 (both in `href="mailto:..."` and in the visible text).
 Note: the volunteer form opens the visitor's own email app with their details filled in.
 It doesn't send anything by itself.
+
+### The Monday Ledger: marking a missed week (EDIT 14)
+
+The ledger on the home page adds a dot for every Monday on its own, and the big number
+counts them. If a Monday had no delivery (holiday, weather, clinic closed), add its date
+to this line in the settings at the bottom of `index.html`:
+
+```js
+var MISSED_MONDAYS = ['2025-12-29'];          // one week missed
+var MISSED_MONDAYS = ['2025-12-29', '2026-05-25'];   // two weeks missed
+```
+
+That week then shows as an open circle, and the line under the dots changes from
+"Not one missed." to "103 of 105 Mondays, and counting." automatically. Keep this list
+accurate: the site says "Not one missed" only while it's empty.
 
 ### Replace the donation QR code (EDIT 12)
 
@@ -353,7 +383,7 @@ Official instructions: https://code.claude.com/docs/en/github-actions
    > @claude Add "Austin Flower Co." to Partners and Donors, linking to
    > https://www.austinflowerco.com. Their logo is uploads/austin-flower.png.
 
-   > @claude Use uploads/ren.jpg as Ren Hogue's team photo.
+   > @claude Use uploads/kim.jpg as Kim's team photo.
 
    > @claude Add this press article: "Title", Publication Name, https://link
 3. **Claude replies in the issue** and opens a pull request. Open it, check the summary

@@ -145,6 +145,11 @@ h1 em{font-style:italic;color:var(--rose);font-weight:500}
   animation:bloom .5s ease-out backwards;
 }
 @keyframes bloom{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:.82}}
+.dot.missed{background:transparent;box-shadow:inset 0 0 0 1.5px var(--stem);opacity:.55;animation-name:bloom-missed}
+@keyframes bloom-missed{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:.55}}
+.ledger-count{text-transform:none;letter-spacing:0;font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;line-height:1;color:var(--ink)}
+.ledger-count small{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:500;color:var(--ink-soft);margin-left:6px}
+.ledger-key{display:inline-block;width:9px;height:9px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--stem);vertical-align:middle;margin:0 3px 2px 0}
 .ledger-foot{font-size:.8rem;color:var(--ink-soft);line-height:1.5}
 .ledger-foot strong{color:var(--ink);font-weight:600}
 
@@ -238,6 +243,15 @@ a.partner:has(.p-sub){padding-top:11px;padding-bottom:11px;line-height:1.35}
 a.partner.has-logo{display:inline-flex;align-items:center;justify-content:center;height:76px;padding:8px 20px;background:#fff}
 a.partner.has-logo img{max-height:60px;max-width:180px;width:auto;height:auto;display:block}
 a.partner.partner-open{border-style:dashed;color:var(--ink-soft)}
+a.partner.has-logo img[src*="venus-et-fleur"]{max-width:240px}
+.bio-ph img[src*="logos/"]{object-fit:contain;background:#fff;padding:4px}
+.np-card{display:grid;grid-template-columns:minmax(0,280px) 1fr;gap:28px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:20px;background:#fff;max-width:760px}
+.np-photo{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block}
+.np-logo img{height:72px;width:auto;display:block;margin-bottom:12px}
+.np-body h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:8px}
+.np-body p{color:var(--ink-soft)}
+.np-body p a{color:var(--rose)}
+@media (max-width:640px){.np-card{grid-template-columns:1fr}.np-photo{max-width:320px}}
 .partner{
   border:1px solid var(--line);background:#fff;
   padding:16px 26px;font-size:.9rem;color:var(--ink-soft);font-weight:500;
@@ -286,7 +300,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:52px 0 30px;font
   .strip-grid{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}
   .stat:nth-child(2){border-right:none}
-  .steps,.chapters{grid-template-columns:1fr}
+  .steps,.chapters,.involve{grid-template-columns:1fr}
   .step{border-right:none;border-bottom:1px solid var(--line)}
   .team{grid-template-columns:repeat(2,1fr)}
   .gal{grid-template-columns:repeat(2,1fr)}
@@ -344,8 +358,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
         <div class="ledger-title">The Monday Ledger</div>
         <div class="ledger-sub">Since Nov 2024</div>
       </div>
-      <div class="dots" id="dots"></div>
-      <div class="ledger-foot">Each dot is one Monday we showed up. <strong>Not one missed.</strong></div>
+      <div class="dots" id="dots" role="img"></div>
+      <div class="ledger-foot" id="ledger-foot">Each dot is one Monday we showed up.</div>
     </div>
   </div>
 </header>
@@ -383,6 +397,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <p>She began bringing flowers into the clinics. Not as a survivor looking back, but as a patient still in it.</p>
       <div class="pull">She didn't notice she was doing anything unusual. It was only when people kept telling her so that she understood.</div>
       <p>During the peak of her treatment she wrote a poem. A nurse read it aloud one day while she sat waiting, and it stayed with her. When Flowers for Joy began, it was the nursing staff who suggested attaching the poem to the deliveries — because coming from a patient who had lived it, the words carried an encouragement no card from a stranger could.</p>
+      <p>Flowers for Joy began in November 2024 with a single delivery, a simple bouquet meant to change the ambiance of a hospital infusion room and bring a smile to everyone in it. Seema shared the idea with Lauren during her own treatments. Lauren was the first to help, connecting her with the American Cancer Society, which helped establish Flowers for Joy. Since then, we've delivered flowers every Monday. Fresh flowers are sourced through partnerships with Trader Joe's, Whole Foods and La Fleur Florist, then arranged and delivered by hand.</p>
+      <p>Chris and Tim became the organization's earliest and most dedicated volunteers, personally handing out flowers in hospital waiting areas, a gesture that has since become a Flowers for Joy signature: small enough to fit in one hand, big enough to change someone's whole day.</p>
       <p>Today that instinct has a name, a team, and a route. It runs every week.</p>
     </div>
     <div class="ph ph-tall" data-img="images/seema.jpg"><div><span>✿</span>Photo — Seema with flowers<br><em style="font-size:.72rem;opacity:.75">portrait, vertical</em></div></div>
@@ -427,7 +443,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     </div>
     <!-- PHOTO POLICY: Photos should feature volunteers, nurses, or florists. Patient photos are allowed ONLY with the patient's written consent covering website use (the three patient photos below have signed consent). -->
     <div class="gal">
-      <div class="ph ph-sq" data-img="images/gallery-1.jpg"><div><span>✿</span>Volunteers</div></div>
+      <div class="ph ph-sq" data-img="images/gallery-1.jpg"><div><span>✿</span>Volunteers with flowers</div></div>
       <div class="ph ph-sq" data-img="images/gallery-3.jpg"><div><span>✿</span>Volunteer &amp; florist</div></div>
       <div class="ph ph-sq" data-img="images/gallery-2.jpg"><div><span>✿</span>Bouquets</div></div>
       <div class="ph ph-sq" data-img="images/gallery-4.jpg"><div><span>✿</span>Delivery run</div></div>
@@ -457,7 +473,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <div class="ch">
         <div class="ch-city">New York</div>
         <div class="ch-status live">Now in NYC</div>
-        <p>Led by chapter chairs Serena Govil and Karina Redkar. Mount Sinai is the receiving clinic, and Trader Joe's donates the flowers.</p>
+        <p>Led by chapter chairs Karina Redkar and Serena Govil. Mount Sinai is the receiving clinic, and Trader Joe's donates the flowers.</p>
       </div>
       <div class="ch">
         <div class="ch-city">Kuwait</div>
@@ -486,40 +502,50 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
     <div class="bios">
       <div class="bio"><div class="ph bio-ph" data-img="images/avatar-seema.jpg">SG</div><div><div class="m-name">Seema Govil</div><div class="m-role">Founder</div>
         <p>Seema started Flowers for Joy in November 2024, during her own cancer treatment, with a single bouquet meant to bring a smile to everyone in the infusion room.</p></div></div>
-      <div class="bio"><div class="ph bio-ph" data-img="images/avatar-chris.jpg">CK</div><div><div class="m-name">C.J. (Chris) Kary</div><div class="m-role">Executive Director</div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/avatar-chris.jpg">CK</div><div><div class="m-name">Christopher John Kary</div><div class="m-role">Executive Director</div>
         <p>Chris J. Kary is the Executive Director of Flowers for Joy, an organization dedicated to bringing beauty, hope, and joy to people facing cancer. Under his leadership, the organization delivers fresh flowers directly to patients in infusion rooms and to the nurses caring for them at oncology centers across the region.</p> <p>Chris' connection to flowers goes back to his mother's rose garden and his father's lifelong search for purpose. For the last year and a half of his life, his father worked alongside him to build Flowers for Joy. “It remains one of the greatest honors of my life that we got to create this together before he passed,” he says. That experience shapes how he talks about the organization's work today: “There's nothing more rewarding than witnessing how a simple bouquet can brighten someone's day during their hardest moments.”</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-anjali.jpg">AZ</div><div><div class="m-name">Anjali Kaul Zutshi</div><div class="m-role">Nonprofit Advisor</div>
+        <p>Anjali is a nonprofit advisor with more than 30 years of experience in fundraising, strategic planning, and nonprofit leadership. She has worked with organizations across Texas and nationally to strengthen their sustainability, build partnerships, and advance their missions. Anjali is a committed community volunteer and currently serves in leadership and advisory roles with several nonprofit and civic organizations.</p></div></div>
     </div>
 
     <h3 class="bio-group">Volunteers</h3>
     <div class="bios">
-      <div class="bio"><div class="ph bio-ph" data-img="images/team-pi.jpg">P</div><div><div class="m-name">Pi</div><div class="m-role">Volunteer</div>
-        <p>Pi is a volunteer with Flowers for Joy. For fifteen years, cancer was part of her family's life, through countless trips to MD Anderson, doctor appointments, and hours spent in infusion rooms. Over time, those places became part of her routine, but she never let them define who she was. Through it all, Pi tried to live one day at a time. “I chose joy whenever I could find it, laughter whenever we could share it, and optimism even on the hardest days,” she says. “That didn't mean ignoring the reality of what we were facing, it meant choosing how we wanted to live despite it.” Looking back, she says the greatest lesson of that journey is this: “life is not measured by the number of hospital visits or treatments, but by the love, hope, and joy we share along the way.”</p></div></div>
-      <div class="bio"><div class="ph bio-ph" data-img="images/team-lauren.jpg">L</div><div><div class="m-name">Lauren</div><div class="m-role">Volunteer</div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-timothy.jpg">TK</div><div><div class="m-name">Timothy Paul Kary</div><div class="m-role">Volunteer · In loving memory</div>
+        <p>Timothy Kary, affectionately known to many of us as “Dad,” lived a life filled with faith, family, kindness, and compassion. He passed away on May 27, 2026, at the age of 79.</p>
+        <p>During one of Timothy's radiation treatments for lung cancer, his son Christopher met Seema while she was delivering flowers to Texas Oncology. Hoping to give his father a renewed sense of purpose, Christopher suggested they volunteer together with Flowers for Joy.</p>
+        <p>For the next year and a half, father and son faithfully delivered flowers every Monday, bringing comfort, smiles, and encouragement to patients undergoing cancer treatment. What began as a way to give Dad a sense of purpose became a beautiful journey of service and love.</p>
+        <p>With a master's degree in Physics from the University of Illinois, Timothy loved science, learning, travel, and cars. Above all, he cherished his family and his faith in God.</p>
+        <p>Through Flowers for Joy, Timothy reminded us that even during our own challenges, we can bring light into someone else's life.</p>
+        <p>His kindness, gentle spirit, and legacy of spreading joy will always remain a treasured part of Flowers for Joy.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-lauren.jpg">LS</div><div><div class="m-name">Lauren Jo Simmons</div><div class="m-role">Volunteer</div>
         <p>Lauren is a volunteer with Flowers for Joy and has played a key role in the organization's growth since its founding. It was Lauren's introduction of Seema to the American Cancer Society that first kickstarted Flowers for Joy, and she has continued to help bring its weekly deliveries to life ever since. She is also a mother of three daughters and lives in Austin with her husband, and she volunteers as a driver for the American Cancer Society's Road to Recovery Program. When she's not with Flowers for Joy, Lauren spends her time playing tennis, walking her dog, and watching tennis.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-pi.jpg">PC</div><div><div class="m-name">Pi Crowley</div><div class="m-role">Volunteer</div>
+        <p>Pi is a volunteer with Flowers for Joy. For fifteen years, cancer was part of her family's life, through countless trips to MD Anderson, doctor appointments, and hours spent in infusion rooms. Over time, those places became part of her routine, but she never let them define who she was. Through it all, Pi tried to live one day at a time. “I chose joy whenever I could find it, laughter whenever we could share it, and optimism even on the hardest days,” she says. “That didn't mean ignoring the reality of what we were facing, it meant choosing how we wanted to live despite it.” Looking back, she says the greatest lesson of that journey is this: “life is not measured by the number of hospital visits or treatments, but by the love, hope, and joy we share along the way.”</p></div></div>
       <div class="bio"><div class="ph bio-ph" data-img="images/team-missy.jpg">MP</div><div><div class="m-name">Missy Payne</div><div class="m-role">Volunteer</div>
         <p>Missy is a volunteer with Flowers for Joy and a second grade teacher of 24 years. She describes herself as “a teacher, a mom, a dog lover, and someone who has always believed in showing up for others.” Now navigating her own breast cancer journey, she says she's found “an even deeper passion for supporting and encouraging others.” Outside of Flowers for Joy, Missy loves traveling, hiking, and spending time in nature with her boyfriend, her son, and their two dogs. Her hope is simple: to remind others that “even in the hardest seasons, there is still hope, strength, and purpose.”</p></div></div>
-      <div class="bio"><div class="ph bio-ph" data-img="images/team-neelu.jpg">N</div><div><div class="m-name">Neelu</div><div class="m-role">Volunteer</div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-neelu.jpg">NA</div><div><div class="m-name">Neelu Amar</div><div class="m-role">Volunteer</div>
         <p>Neelu is a volunteer with Flowers for Joy, an artist, graphic designer, educator, mother of two, and cancer survivor. She believes in “the power of creativity, compassion, and community,” and says her own journey has taught her resilience, gratitude, and the importance of giving back. Through art and volunteer work, Neelu hopes to bring encouragement, hope, and meaningful connections to others. “I'm grateful to be part of an organization that makes a positive difference,” she says, “and I'm excited to contribute my time, creativity, and heart in service to our community.”</p></div></div>
       <div class="bio"><div class="ph bio-ph" data-img="images/team-kevin.jpg">K</div><div><div class="m-name">Kevin</div><div class="m-role">Volunteer</div>
         <p>Kevin is a volunteer with Flowers for Joy who delivers flowers from La Fleur Florist to patients and nurses at oncology centers across the region. Kevin's connection to the mission is personal. As a cancer survivor and former infusion patient at Texas Oncology, he says, “it gives me great satisfaction to give back.”</p></div></div>
-      <div class="bio"><div class="ph bio-ph" data-img="images/team-timothy.jpg">TK</div><div><div class="m-name">Timothy Kary</div><div class="m-role">Volunteer</div></div></div>
     </div>
 
     <h3 class="bio-group">Vendor partners</h3>
     <div class="bios">
-      <div class="bio"><div class="ph bio-ph" data-img="images/team-ren.jpg">RH</div><div><div class="m-name">Ren Hogue</div><div class="m-role">Store Manager, Whole Foods Market</div>
-        <p>Ren Hogue is the Store Manager at Whole Foods Market and one of Flowers for Joy's vendor partners. His support helps supply the fresh flowers behind our weekly deliveries, making it possible to bring color and comfort to patients and nurses at the oncology centers we serve.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/logos/whole-foods.png">WF</div><div><div class="m-name">Whole Foods Market</div><div class="m-role">Vendor partner</div>
+        <p>Whole Foods Market is one of Flowers for Joy's vendor partners, helping supply the fresh flowers behind our weekly deliveries to patients and nurses at the oncology centers we serve.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/logos/trader-joes.png">TJ</div><div><div class="m-name">Trader Joe's</div><div class="m-role">Vendor partner</div>
+        <p>Trader Joe's is one of Flowers for Joy's vendor partners, helping supply the fresh flowers behind our weekly deliveries to patients and nurses at the oncology centers we serve.</p></div></div>
       <div class="bio"><div class="ph bio-ph" data-img="images/team-kim.jpg">K</div><div><div class="m-name">Kim</div><div class="m-role">Owner, La Fleur Florist</div>
         <p>Kim is the owner of La Fleur Florist and one of Flowers for Joy's vendor partners, generously donating flowers that go directly to patients and nurses at oncology centers across the region. Kim's decision to get involved came after losing her niece to a long battle with esophageal cancer. “I felt the need to send some love and beauty to others in the midst of the battle,” she says. When Seema came to her shop and shared her vision for Flowers for Joy, Kim didn't hesitate: “I said I'm in!!!”</p></div></div>
     </div>
 
     <h3 class="bio-group">New York chapter chairs</h3>
-    <figure class="group-photo"><img src="images/nyc-chairs.jpg" alt="Serena Govil and Karina Redkar, Flowers for Joy NYC chapter chairs"></figure>
+    <figure class="group-photo"><img src="images/nyc-chairs.jpg" alt="Karina Redkar and Serena Govil, Flowers for Joy NYC chapter chairs"></figure>
     <div class="bios">
-      <div class="bio"><div class="ph bio-ph" data-img="images/team-serena.jpg">SG</div><div><div class="m-name">Serena Govil</div><div class="m-role">NYC Chapter Chair</div>
-        <p>Serena Govil is a Flowers for Joy NYC Chapter Chair and a Master of Health Administration candidate at Columbia University's Mailman School of Public Health. Her background in Medicare and Medicaid operations and healthcare access research gives her a close view of the patient experience Flowers for Joy exists to brighten. She's helping lead the chapter's launch as it brings fresh flowers to oncology patients and nurses across New York City.</p></div></div>
       <div class="bio"><div class="ph bio-ph" data-img="images/team-karina.jpg">KR</div><div><div class="m-name">Karina Redkar</div><div class="m-role">NYC Chapter Chair</div>
         <p>Karina Redkar is a Pilates instructor and wellness community builder based in New York City, currently completing Equinox's 450-hour Comprehensive Pilates Certification. As a Flowers for Joy NYC Chapter Chair, she's working to bring the organization from Texas to oncology wards across New York City, extending her belief in the power of movement and connection to healing in a different form.</p></div></div>
+      <div class="bio"><div class="ph bio-ph" data-img="images/team-serena.jpg">SG</div><div><div class="m-name">Serena Govil</div><div class="m-role">NYC Chapter Chair</div>
+        <p>Serena Govil is a Flowers for Joy NYC Chapter Chair and a Master of Health Administration candidate at Columbia University's Mailman School of Public Health. Her background in Medicare and Medicaid operations and healthcare access research gives her a close view of the patient experience Flowers for Joy exists to brighten. She's helping lead the chapter's launch as it brings fresh flowers to oncology patients and nurses across New York City.</p></div></div>
     </div>
   </div>
 </section>
@@ -581,12 +607,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
       <a class="partner" href="https://www.traderjoes.com" target="_blank" rel="noopener" data-logo="images/logos/trader-joes.png"><span class="p-name">Trader Joe's</span></a>
       <a class="partner" href="https://lafleurflowermarket.com" target="_blank" rel="noopener" data-logo="images/logos/la-fleur.png"><span class="p-name">La Fleur Florist</span></a>
       <a class="partner" href="https://www.venusetfleur.com" target="_blank" rel="noopener" data-logo="images/logos/venus-et-fleur.png"><span class="p-name">Venus et Fleur</span></a>
+      <a class="partner" href="https://www.tvasiausa.com" target="_blank" rel="noopener" data-logo="images/logos/tv-asia.png"><span class="p-name">TV Asia</span></a>
       <a class="partner partner-open" href="#help">Your business here</a>
     </div>
     <div class="p-group">Partners and Business Advisors</div>
     <div class="partners">
       <a class="partner" href="https://thedripbar.com/austin-the-domain/" target="_blank" rel="noopener" data-logo="images/logos/dripbar.png"><span class="p-name">The DRIPBaR</span></a>
       <a class="partner" href="https://www.nextgenfbs.com" target="_blank" rel="noopener" data-logo="images/logos/nextgen.png"><span class="p-name">NextGen</span><span class="p-sub">Business &amp; Franchise Solutions</span></a>
+    </div>
+    <div class="p-group">Nonprofit Partners</div>
+    <!-- Nonprofit partner card: logo, photo and short text. Copy the whole <div class="np-card"> block to add another. -->
+    <div class="np-card">
+      <img class="np-photo" src="images/keep-austin-fed.jpg" alt="Flowers for Joy with the Keep Austin Fed team">
+      <div class="np-body">
+        <a class="np-logo" href="https://www.keepaustinfed.org" target="_blank" rel="noopener"><img src="images/logos/keep-austin-fed.png" alt="Keep Austin Fed"></a>
+        <h3>Keep Austin Fed</h3>
+        <!-- BIO: add Keep Austin Fed's description here as a <p>…</p> when it arrives. -->
+        <p><a href="https://www.keepaustinfed.org/blog/flowersforjoy" target="_blank" rel="noopener">Read Keep Austin Fed's story about Flowers for Joy ↗</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -672,6 +710,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 var CONTACT_EMAIL = 'Seema@thefranchiseconsultingcompany.com';
 // The date of the first Monday delivery. The Monday Ledger dots count from here.
 var FIRST_MONDAY = new Date(2024, 10, 4);   // year, month (0 = January, so 10 = November), day
+// Mondays with no delivery (holiday, weather, clinic closed). Add each one as 'YYYY-MM-DD',
+// separated by commas, e.g. ['2025-12-29', '2026-05-25']. Those weeks show as an open circle,
+// and the "Not one missed" line changes automatically. Leave the list empty if none were missed.
+var MISSED_MONDAYS = [];
 // ==================== END OF SETTINGS — nothing below needs editing ====================
 
 document.getElementById('chapter-email').href = 'mailto:' + CONTACT_EMAIL +
@@ -733,18 +775,37 @@ document.querySelectorAll('a.partner[data-logo]').forEach(function(box){
 });
 
 (function(){
-  var start = FIRST_MONDAY;
-  var now = new Date();
-  var weeks = Math.max(1, Math.floor((now - start)/(1000*60*60*24*7)));
+  // Monday Ledger: one dot per Monday since FIRST_MONDAY (including today if it's a Monday).
+  function key(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+  var missed = {}; MISSED_MONDAYS.forEach(function(k){ missed[k] = true; });
+  var today = new Date(); today.setHours(23,59,59,999);
   var el = document.getElementById('dots');
   var frag = document.createDocumentFragment();
-  for(var i=0;i<weeks;i++){
-    var d = document.createElement('div');
-    d.className='dot';
-    d.style.animationDelay=(i*8)+'ms';
-    frag.appendChild(d);
+  var total = 0, missedCount = 0;
+  for (var i = 0; ; i++) {
+    var d = new Date(FIRST_MONDAY.getFullYear(), FIRST_MONDAY.getMonth(), FIRST_MONDAY.getDate() + 7*i);
+    if (d > today) break;
+    var isMissed = !!missed[key(d)];
+    var dot = document.createElement('div');
+    dot.className = isMissed ? 'dot missed' : 'dot';
+    dot.title = d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}) + (isMissed ? ' · no delivery' : '');
+    dot.style.animationDelay = (i*8) + 'ms';
+    frag.appendChild(dot);
+    total++; if (isMissed) missedCount++;
   }
   el.appendChild(frag);
+  var shown = total - missedCount;
+  var since = FIRST_MONDAY.toLocaleDateString('en-US', {month:'long', year:'numeric'});
+  el.setAttribute('aria-label', shown + ' Mondays of flower deliveries since ' + since);
+  var head = document.querySelector('.ledger-sub');
+  head.innerHTML = '<span class="ledger-count">' + shown + '<small>Mondays</small></span>';
+  var foot = document.getElementById('ledger-foot');
+  if (missedCount === 0) {
+    foot.innerHTML = 'Each dot is one Monday we showed up, since ' + since + '. <strong>Not one missed.</strong>';
+  } else {
+    foot.innerHTML = 'Each dot is one Monday we showed up, since ' + since + '. <strong>' + shown + ' of ' + total +
+      ' Mondays, and counting.</strong> <span class="ledger-key" aria-hidden="true"></span>marks a week we couldn\'t make it.';
+  }
 })();
 </script>
 </body>
