@@ -59,7 +59,7 @@ GoDaddy or Bluehost).
 | EDIT 5  | Our story (text + Seema's photo) |
 | EDIT 6  | How it works (the three steps) |
 | EDIT 7  | Photo gallery |
-| EDIT 8  | Chapters (Austin, New York, Kuwait, Your city) |
+| EDIT 8  | Chapters (Austin, New York, San Diego, Atlanta, Your city) |
 | EDIT 9  | Team (leadership, volunteers, vendor partners, NYC chapter chairs) |
 | EDIT 10 | Press articles |
 | EDIT 11 | Partners and donors; partners and business advisors |
@@ -232,7 +232,7 @@ var MISSED_MONDAYS = ['2025-12-29', '2026-05-25'];   // two weeks missed
 ```
 
 That week then shows as an open circle, and the line under the dots changes from
-"Not one missed." to "103 of 105 Mondays, and counting." automatically. Keep this list
+"Not one missed." to "103 of 105 Mondays, and counting." automatically. The "haven't missed a Monday" line in the opening and the "Never missed" number below it also change on their own. Keep this list
 accurate: the site says "Not one missed" only while it's empty.
 
 ### Replace the donation QR code (EDIT 12)

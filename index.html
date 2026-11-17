@@ -343,9 +343,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Austin · New York · Kuwait · and growing</div>
+      <div class="eyebrow">Austin · New York · and growing</div>
       <h1>Every Monday, someone in treatment gets <em>flowers</em>.</h1>
-      <p class="lede">Flowers for Joy delivers donated bouquets to cancer patients in chemotherapy and radiation. Started by a patient, during her own treatment. We haven't missed a Monday since November 2024.</p>
+      <p class="lede">Flowers for Joy delivers donated bouquets to cancer patients in chemotherapy and radiation. Started by a patient, during her own treatment. <span id="never-missed">We haven't missed a Monday since November 2024.</span></p>
       <div class="hero-cta">
         <a href="#help" class="btn">Volunteer with us</a>
         <a href="#story" class="btn btn-ghost">Read our story</a>
@@ -370,8 +370,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
   <div class="wrap strip-grid">
     <div class="stat"><div class="stat-n">Nov 2024</div><div class="stat-l">First delivery</div></div>
     <div class="stat"><div class="stat-n">7</div><div class="stat-l">Volunteers</div></div>
-    <div class="stat"><div class="stat-n">Every Monday</div><div class="stat-l">Never missed</div></div>
-    <div class="stat"><div class="stat-n">3 cities</div><div class="stat-l">Austin · New York · Kuwait</div></div>
+    <div class="stat"><div class="stat-n">Every Monday</div><div class="stat-l" id="never-missed-stat">Never missed</div></div>
+    <div class="stat"><div class="stat-n">2 cities</div><div class="stat-l">Austin · New York · 2 more coming</div></div>
   </div>
 </div>
 
@@ -476,9 +476,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bloom);outline-offs
         <p>Led by chapter chairs Karina Redkar and Serena Govil. Mount Sinai is the receiving clinic, and Trader Joe's donates the flowers.</p>
       </div>
       <div class="ch">
-        <div class="ch-city">Kuwait</div>
-        <div class="ch-status soon">Starting</div>
-        <p>Our first international chapter, opening the same model abroad. Team details to come.</p>
+        <div class="ch-city">San Diego</div>
+        <div class="ch-status soon">Coming soon</div>
+        <p>Our next chapter is getting ready to launch. Details to come.</p>
+      </div>
+      <div class="ch">
+        <div class="ch-city">Atlanta</div>
+        <div class="ch-status soon">Coming soon</div>
+        <p>Our next chapter is getting ready to launch. Details to come.</p>
       </div>
       <div class="ch">
         <div class="ch-city">Your city</div>
@@ -799,6 +804,10 @@ document.querySelectorAll('a.partner[data-logo]').forEach(function(box){
   el.setAttribute('aria-label', shown + ' Mondays of flower deliveries since ' + since);
   var head = document.querySelector('.ledger-sub');
   head.innerHTML = '<span class="ledger-count">' + shown + '<small>Mondays</small></span>';
+  if (missedCount > 0) {
+    document.getElementById('never-missed').textContent = 'We deliver every Monday, and have since ' + since + '.';
+    document.getElementById('never-missed-stat').textContent = 'Since ' + since;
+  }
   var foot = document.getElementById('ledger-foot');
   if (missedCount === 0) {
     foot.innerHTML = 'Each dot is one Monday we showed up, since ' + since + '. <strong>Not one missed.</strong>';
